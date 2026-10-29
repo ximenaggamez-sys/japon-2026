@@ -1,0 +1,17 @@
+{
+  "name": "Japón 2026 · Guía de viaje",
+  "short_name": "Japón 2026",
+  "description": "Mapa con calles, lugares, plan por día y trenes para el viaje a Japón. Funciona sin conexión.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F1F2F6",
+  "theme_color": "#F1F2F6",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
