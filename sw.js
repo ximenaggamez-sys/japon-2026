@@ -1,5 +1,5 @@
 /* Japón 2026 – offline cache. Everything is saved on first visit; pages and maps then load without signal. */
-const VERSION = "49f0f74494";
+const VERSION = "9221ec0c71";
 const CACHE = "jp2026-" + VERSION, FONTS = "jp2026-fonts";
 const FILES = ["./","data/stations.json","data/streets-index.json","icons/apple-touch-icon.png","icons/icon-192.png","icons/icon-512.png","icons/icon-maskable-512.png","index.html","manifest.webmanifest","streets/hakone.json","streets/hiroshima.json","streets/kanazawa.json","streets/kobe.json","streets/kyoto.json","streets/miyajima.json","streets/nagano.json","streets/nara.json","streets/nikko.json","streets/osaka.json","streets/shirakawago.json","streets/takayama.json","streets/tokyo.json","train.html","vendor/leaflet.js"];
 self.addEventListener("install", e => {
