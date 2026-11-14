@@ -990,8 +990,8 @@ body{margin:0;padding-bottom:calc(var(--bnav-h) + env(safe-area-inset-bottom,0px
 .note.hotelnote svg,.note.hotelnote b{color:var(--hotel)}
 .sec-h{display:flex;align-items:center;gap:9px;margin:22px 0 8px;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
 /* bottom nav (phones) */
-.bottomnav{position:fixed;left:0;right:0;bottom:0;z-index:1500;display:grid;grid-template-columns:repeat(5,1fr);background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--rule);padding-bottom:env(safe-area-inset-bottom,0px)}
-.bottomnav a{display:grid;justify-items:center;gap:2px;padding:7px 4px 6px;text-decoration:none;color:var(--muted);font-size:11px;font-weight:700}
+.bottomnav{position:fixed;left:0;right:0;bottom:0;z-index:1500;display:grid;grid-template-columns:repeat(6,1fr);background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--rule);padding-bottom:env(safe-area-inset-bottom,0px)}
+.bottomnav a{display:grid;justify-items:center;gap:2px;padding:7px 2px 6px;text-decoration:none;color:var(--muted);font-size:10.5px;font-weight:700;white-space:nowrap;min-width:0}
 .bottomnav a svg{width:22px;height:22px}
 .bottomnav a[aria-current="page"]{color:var(--stamp)}
 @media (max-width:899px){:root{--bnav-h:58px}}
@@ -1296,6 +1296,84 @@ html.sheet-open .install{display:none !important}
 .dpeek{font-size:12.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;min-width:0;flex:1 1 180px}
 .dday[open] .dpeek{display:none}
 .dday[open] > summary{margin-bottom:8px}
+/* my trip */
+.trip-body{padding:2px 12px 14px}
+.trip-body .gs-note{padding:4px 0 6px}
+.act.pri{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.txc{border:1px solid var(--rule);border-radius:12px;padding:10px 12px;margin:8px 0;background:var(--paper)}
+.txc-h{display:flex;justify-content:space-between;gap:4px 10px;align-items:baseline;flex-wrap:wrap}
+.txc-h small{color:var(--muted);font-size:12px}
+.txc-ja{font-size:17px;line-height:1.5;margin:6px 0 2px;font-family:"Hiragino Sans","Yu Gothic","Noto Sans JP",var(--body)}
+.txc-ja a{font-size:14px;color:var(--accent)}
+.txc-a{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.rsf{display:grid;gap:9px;margin:8px 0}
+.rsf label{display:grid;gap:3px;font-size:12px;font-weight:700;color:var(--muted);min-width:0}
+.rsf input:not([type=checkbox]),.rsf select,.rsf textarea{font:16px/1.3 var(--body);color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:9px;padding:8px 10px;width:100%;min-width:0;box-sizing:border-box}
+.rsf input[type=file]{font-size:13px;padding:6px}
+.rsf2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:9px}
+.chks{border:1px solid var(--rule);border-radius:10px;padding:6px 10px 9px;margin:0;display:flex;flex-wrap:wrap;gap:6px 14px;min-width:0}
+.chks legend{font-size:12px;font-weight:700;color:var(--muted);padding:0 4px}
+.rsf .chkl{display:inline-flex;align-items:center;gap:6px;font-size:14.5px;font-weight:500;color:var(--ink)}
+.rsf .chkl input{width:18px;height:18px;accent-color:var(--accent)}
+.chks .exp-p{flex:1 1 120px}
+.rs-add{margin-top:12px}
+.rs-add>summary{list-style:none;cursor:pointer}
+.rs-add>summary::-webkit-details-marker{display:none}
+.rsl,.wxl,.dres,.exp-set,.exp-bal,.exp-cat,.exp-l{list-style:none;margin:0;padding:0}
+.rsl li{display:grid;grid-template-columns:58px minmax(0,1fr);gap:10px;padding:10px 0;border-top:1px solid var(--rule)}
+.rsl li:first-child{border-top:0}
+.rsl li.past{opacity:.55}
+.rsl-w{display:grid;align-content:start;font-size:13px}
+.rsl-w span{color:var(--muted)}
+.rsl-b{font-size:14.5px;min-width:0;overflow-wrap:anywhere}
+.rsl-b small{color:var(--muted);font-size:12.5px}
+.rsl-b p{margin:4px 0 0;font-size:13.5px}
+.rsl-code{display:flex;gap:6px;align-items:center;margin-top:5px;flex-wrap:wrap}
+.code{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:700;background:var(--tint);padding:1px 6px;border-radius:6px;letter-spacing:.04em;overflow-wrap:anywhere}
+.wxl li{display:grid;grid-template-columns:66px 28px minmax(0,1fr);gap:8px;align-items:start;padding:9px 0;border-top:1px solid var(--rule);font-size:13.5px}
+.wx-d{display:grid;font-size:13px}
+.wx-d small{color:var(--muted);font-size:11.5px}
+.wx-i{font-size:22px;line-height:1.1}
+.wx-b small,.wx-b span{color:var(--muted);font-size:12.5px}
+.tg.wx{text-transform:none;letter-spacing:0;background:var(--tint);color:var(--ink)}
+.dtrip{margin-top:9px;display:grid;gap:6px}
+.dtrip .txc-a{margin-top:0}
+.dwx{display:grid;gap:2px;font-size:13px;background:var(--tint);border-radius:10px;padding:7px 10px;line-height:1.45}
+.dwx-w{color:var(--muted);font-size:12.5px}
+.dres li{font-size:13.5px;padding:2px 0;overflow-wrap:anywhere}
+.dres .act{padding:0 8px;min-height:22px;font-size:11.5px}
+.exp-sum{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;margin:12px 0 4px}
+.exp-sum>div{background:var(--tint);border-radius:12px;padding:10px 12px;display:grid;gap:1px}
+.exp-sum small{color:var(--muted);font-size:11.5px;font-weight:700}
+.exp-sum b{font-size:20px;line-height:1.2}
+.exp-h{margin:14px 0 6px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.exp-set li{padding:8px 10px;border-radius:10px;background:var(--gold-bg);color:var(--gold-ink);margin:4px 0;font-size:14px}
+.exp-bal li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:baseline;padding:6px 0;border-top:1px solid var(--rule);font-size:13.5px}
+.exp-bal li span:nth-child(2){color:var(--muted);font-size:12px}
+.exp-bal .pos{color:var(--low);font-weight:800}
+.exp-bal .neg{color:var(--stamp);font-weight:800}
+.exp-cat li{position:relative;display:flex;justify-content:space-between;gap:8px;padding:6px 9px;margin:3px 0;font-size:13.5px;border-radius:8px;overflow:hidden;isolation:isolate}
+.exp-cat li i{position:absolute;left:0;top:0;bottom:0;background:var(--tint);z-index:-1}
+.exp-l li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px;align-items:center;padding:7px 0;border-top:1px solid var(--rule);font-size:14px}
+.exp-l li small{display:block;color:var(--muted);font-size:12px}
+.exp-l .act{width:30px;justify-content:center;padding:0}
+.exp-cfg{margin-top:16px;border-top:1px solid var(--rule);padding-top:6px}
+.exp-cfg>summary{cursor:pointer;font-weight:700;font-size:14px;padding:6px 0;color:var(--accent)}
+html.ovl-on{overflow:hidden}
+.ovl{position:fixed;inset:0;z-index:4000;background:rgb(0 0 0 / .6);display:grid;place-items:center;padding:14px}
+.ovl[hidden]{display:none}
+.ovl-in{position:relative;background:var(--surface);color:var(--ink);border-radius:16px;width:100%;max-width:620px;max-height:calc(100dvh - 28px);overflow:auto;padding:22px 18px 18px;box-shadow:var(--shadow)}
+.ovl.big .ovl-in{background:#fff;color:#111}
+.ovl.big .act{background:#fff;color:#111;border-color:#c9c9c9}
+.ovl-x{position:absolute;top:4px;right:6px;border:0;background:none;font-size:30px;line-height:1;color:inherit;cursor:pointer;padding:6px 10px}
+.taxi-big p{margin:0 0 10px;overflow-wrap:anywhere}
+.tb-say{font-size:clamp(22px,6.2vw,34px);font-weight:800;padding-right:34px;line-height:1.3}
+.tb-es,.tb-en{font-size:14px;color:#555}
+.tb-name{font-size:clamp(24px,7vw,40px);font-weight:800;line-height:1.25}
+.tb-addr{font-size:clamp(22px,6.4vw,36px);line-height:1.45;font-weight:700}
+.taxi-big .tb-name,.taxi-big .tb-addr,.taxi-big .tb-say{font-family:"Hiragino Sans","Yu Gothic","Noto Sans JP",var(--body)}
+.ovl .tb-name{padding-right:34px}
+.rs-img{display:block;max-width:100%;max-height:70dvh;margin:8px auto 0;border-radius:8px}
 
 </style>
 
@@ -1310,6 +1388,7 @@ html.sheet-open .install{display:none !important}
       <a href="#near" data-nav="near" data-t="Near me">Near me</a>
       <a href="#mine" data-nav="mine" data-t="My places">My places</a>
       <a href="#tips" data-nav="tips" data-t="Tips">Tips</a>
+      <a href="#trip" data-nav="trip" data-t="My trip">My trip</a>
       <a href="train.html" data-t="Trains">Trains</a>
     </nav>
     <div class="langsw" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es">ES</button><button type="button" data-lang="en">EN</button></div>
@@ -1366,6 +1445,7 @@ html.sheet-open .install{display:none !important}
   <a href="#plan" data-nav="plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M7 14h4M7 17h7"/></svg><span data-t="Plan">Plan</span></a>
   <a href="#mine" data-nav="mine"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.2L6 21z"/></svg><span data-t="My places">My places</span></a>
   <a href="#tips" data-nav="tips"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg><span data-t="Tips">Tips</span></a>
+  <a href="#trip" data-nav="trip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M9 11v5M15 11v5"/></svg><span data-t="My trip">My trip</span></a>
   <a href="train.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="13" rx="3"/><path d="M5 10h14M8 20l-2 2M16 20l2 2M9 13h.01M15 13h.01"/></svg><span data-t="Trains">Trains</span></a>
 </nav>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
@@ -3415,6 +3495,7 @@ Object.assign(ES, {"Thousands of goldfish in sculpted glass tanks with light, mu
 Object.assign(ES, {"Hours: check Google Maps": "Horario: revisa en Google Maps", "Open 24 hours": "Abierto 24 h", "Public area, always open": "Zona pública, siempre abierta", "Times depend on shows or bookings": "Horario según función o reserva", "Grounds always open": "Recinto siempre abierto", "buildings": "edificios", "only": "solo", "closed": "cierra", "Open now": "Abierto ahora", "Grounds open": "Recinto abierto", "Closes soon": "Cierra pronto", "closes": "cierra", "opens": "abre", "Closed today": "Cerrado hoy", "Closed now": "Cerrado ahora", "Closed that day": "Cerrado ese día", "Hours are the usual opening times in Japan time; holidays, seasons and last entry can change them, so confirm on Google Maps before a long trip.": "Los horarios son los habituales, en hora de Japón; festivos, temporada y última entrada pueden cambiarlos, así que confirmen en Google Maps antes de un trayecto largo.", "SOS, shopping and train tips, plus where to buy each thing area by area. Tap a category to open it; each store has a link to Google Maps.": "SOS, tips de compras y trenes, y dónde comprar cada cosa, zona por zona. Toca una categoría para abrirla; cada tienda tiene liga a Google Maps."});
 Object.assign(ES, {"Open 24 hours a few steps from the hotel: sweets, drugstore cosmetics and souvenirs at low prices. Use the web tourist coupon (5–7%).": "Abierto 24 horas a unos pasos del hotel: dulces, cosmética de farmacia y recuerdos a precio bajo. Con el cupón web de turista (5–7%).", "Typical price: ¥100–5,000.": "Precio típico: ¥100–5,000.", "New and used with graded condition (A, AB) and a store warranty. New gear often comes in under Bic and Yodobashi. Tax-free.": "Nuevo y usado con estado calificado (A, AB) y garantía de la tienda. En equipo nuevo suele quedar abajo de Bic y Yodobashi. Tax-free.", "Typical price: used lenses ≈¥15,000–200,000.": "Precio típico: lentes usados ≈¥15,000–200,000.", "Pre-owned luxury bags, watches and jewelry with guaranteed authenticity (Chanel, Louis Vuitton, Cartier, Rolex, Omega).": "Bolsas, relojes y joyería de lujo de segunda mano con autenticidad garantizada (Chanel, Louis Vuitton, Cartier, Rolex, Omega).", "Typical price: ≈¥30,000–1,000,000+.": "Precio típico: ≈¥30,000–1,000,000+.", "A real liquor store in Kabukicho: sake, umeshu and Japanese whisky at store prices, with tax-free. Yamazaki, Hakushu and Hibiki are almost never in stock.": "Licorería de verdad en Kabukicho: sake, umeshu y whisky japonés a precio de tienda, con tax-free. Yamazaki, Hakushu y Hibiki casi nunca hay.", "Typical price: bottles ≈¥1,500–10,000.": "Precio típico: botellas ≈¥1,500–10,000.", "Five floors of stationery and art supplies, discounted from list price: pens, notebooks, watercolors, washi. You pay on each floor.": "Cinco pisos de papelería y arte con descuento sobre precio de lista: plumas, cuadernos, acuarelas, washi. Se paga en cada piso.", "Japanese luxury cosmetics and designer fashion under one roof; with the guest card, 5% on top of the refund.": "Cosmética de lujo japonesa y moda de diseñador en un solo lugar; con la tarjeta de huésped, 5% más el reembolso.", "Typical price: ≈¥3,000–50,000.": "Precio típico: ≈¥3,000–50,000.", "Three floors with Japan's best-seller rankings and testers. List price, no discount: great for deciding what to buy.": "Tres pisos con el ranking de lo más vendido en Japón y probadores. Precio de lista, sin descuento: ideal para decidir qué comprar.", "Typical price: ¥1,000–15,000.": "Precio típico: ¥1,000–15,000.", "Pre-owned Japanese designer pieces in great condition: Comme des Garçons, Yohji Yamamoto, Issey Miyake, Sacai.": "Diseñador japonés usado en muy buen estado: Comme des Garçons, Yohji Yamamoto, Issey Miyake, Sacai.", "Typical price: ≈¥5,000–80,000.": "Precio típico: ≈¥5,000–80,000.", "A huge basement of cheap vintage clothing on Meiji-dori.": "Sótano enorme de ropa vintage barata en Meiji-dori.", "Typical price: ¥1,000–5,000.": "Precio típico: ¥1,000–5,000.", "Official price, lower than outside Japan; there's often a line.": "Precio oficial, más bajo que fuera de Japón; suele haber fila.", "Typical price: ≈¥12,000–35,000.": "Precio típico: ≈¥12,000–35,000.", "Open 24 hours: sweets, cosmetics and souvenirs at the lowest prices in the area.": "24 horas: dulces, cosmética y recuerdos al precio más bajo de la zona.", "Six floors of Japanese stationery, beauty, travel gear and clever gadgets.": "Seis pisos de papelería japonesa, belleza, accesorios de viaje y gadgets ingeniosos.", "≈¥300–5,000. Good for hair accessories and Japanese beauty tools.": "≈¥300–5,000. Bueno para accesorios de cabello y herramientas de belleza japonesas.", "Big, well-curated vintage store: American pieces from the 40s to the 80s, plus jewelry and hats.": "Tienda vintage grande y bien curada: ropa americana de los 40 a los 80, joyería y sombreros.", "≈¥2,000–15,000. Most Shimokitazawa shops open around noon.": "≈¥2,000–15,000. Casi todo Shimokitazawa abre hacia el mediodía.", "Famous for vintage denim and Americana, with rare Levi's in the basement.": "Famosa por mezclilla vintage y ropa americana, con Levi's raros en el sótano.", "≈¥5,000–100,000+. Collector prices on rare pieces.": "≈¥5,000–100,000+. Precios de colección en piezas raras.", "Vintage Chanel specialist: bags, jewelry and sunglasses, all authenticated.": "Especialistas en Chanel vintage: bolsas, joyería y lentes, todo autenticado.", "From ≈¥50,000. Tax-free with your passport.": "Desde ≈¥50,000. Tax-free con pasaporte.", "Four floors of authenticated pre-owned luxury, with a deep Hermès and Chanel selection.": "Cuatro pisos de lujo de segunda mano autenticado, con mucho Hermès y Chanel.", "From ≈¥30,000. Bring your physical passport and card for tax-free.": "Desde ≈¥30,000. Lleven pasaporte y tarjeta física para el tax-free.", "Professional chef's knives from one of Japan's most respected makers. Bring cash. Open 6:00–15:00; closed Wednesday and Sunday.": "Cuchillos de chef profesional de una de las casas más respetadas de Japón. Lleven efectivo. Abre 6:00–15:00; cierra miércoles y domingo.", "Typical price: ≈¥15,000–60,000.": "Precio típico: ≈¥15,000–60,000.", "Build your knife (blade, steel and handle) and they hand-engrave it free in about 30 min. Closed Wednesday and Sunday.": "Armas el cuchillo a tu gusto (hoja, acero y mango) y lo graban a mano gratis en unos 30 min. Cierra miércoles y domingo.", "Typical price: ≈¥10,000–50,000.": "Precio típico: ≈¥10,000–50,000.", "Uniqlo's 12-floor global flagship: Heattech, down jackets and Japan-only collaborations.": "La tienda insignia de Uniqlo, 12 pisos: Heattech, chamarras de pluma y colaboraciones solo de Japón.", "≈¥1,000–15,000, cheaper than abroad.": "≈¥1,000–15,000, más barato que fuera de Japón.", "MUJI's world flagship on ten floors, with a bakery, food hall and its own hotel.": "La tienda insignia mundial de MUJI, diez pisos, con panadería, comida y su propio hotel.", "≈¥200–10,000. Pens, skincare and travel bottles are the classic buys.": "≈¥200–10,000. Plumas, cuidado de piel y botes de viaje son lo clásico.", "Boxed Japanese sweets for gifts, with the 5% tourist discount.": "Dulces japoneses de regalo en caja con 5% de turista.", "Typical price: boxes ¥1,000–5,000.": "Precio típico: cajas ¥1,000–5,000.", "Huge electronics store by Yurakucho station, with cameras, cosmetics and a liquor floor.": "Electrónica enorme junto a la estación Yurakucho, con cámaras, cosmética y piso de licores.", "List prices; use the tourist coupon.": "Precio de lista; usen el cupón de turista.", "Japan's grand old department store, with a historic building and a top food hall.": "La gran tienda departamental clásica, con edificio histórico y uno de los mejores sótanos de comida.", "Tourist 5% off with the guest card, on top of tax-free.": "5% de turista con la tarjeta de huésped, además del tax-free.", "Forged knives, explanations in English and free name engraving. Many Kappabashi shops close on Sunday; Kamata, Tsubaya, Kama-asa and Dengama are open.": "Cuchillos forjados, explicación en inglés y grabado gratis del nombre. En domingo muchas tiendas de Kappabashi cierran; Kamata, Tsubaya, Kama-asa y Dengama abren.", "Typical price: ≈¥8,000–50,000.": "Precio típico: ≈¥8,000–50,000.", "Over a thousand knives at good prices; color stickers by steel type and you can pick them up yourself.": "Más de mil cuchillos a buen precio; etiquetas de color por tipo de acero y los puedes tomar sin pedirlos.", "Typical price: from ≈¥5,000.": "Precio típico: desde ≈¥5,000.", "Higher end and a bit pricier: knives, pots, cutting boards and the best selection of whetstones.": "Gama alta y algo más caro: cuchillos, ollas, tablas y la mejor selección de piedras de afilar.", "Typical price: ≈¥10,000–60,000.": "Precio típico: ≈¥10,000–60,000.", "Japanese ceramics at good prices: ramen bowls, cups, sake sets. The upper floor closes early.": "Cerámica japonesa a buen precio: tazones de ramen, tazas, sets de sake. El piso de arriba cierra temprano.", "Typical price: ¥300–3,000.": "Precio típico: ¥300–3,000.", "Realistic plastic food (keychains, magnets). Pricey, but it's the original shop with the best quality.": "Comida de plástico realista (llaveros, imanes). Caro, pero es la tienda original y la de mejor calidad.", "Typical price: ≈¥1,000–5,000.": "Precio típico: ≈¥1,000–5,000.", "Snacks and flavored KitKats in bulk, among the cheapest in Tokyo. Go before 11:00.": "Dulces y KitKat de sabores en cantidad, de lo más barato de Tokio. Vayan antes de las 11:00.", "Typical price: ¥100–1,000.": "Precio típico: ¥100–1,000.", "Used and like-new phones, iPads and Macs, each graded by condition.": "Celulares, iPads y Macs usados o casi nuevos, cada uno con su calificación de estado.", "≈¥20,000–200,000. Check that the phone works with your carrier before you buy.": "≈¥20,000–200,000. Revisen que el celular funcione con su compañía antes de comprar.", "Tokyo-only snack editions (Calbee, Glico, Morinaga) and character shops. Fixed brand prices, not marked up.": "Dulces de edición solo de Tokio (Calbee, Glico, Morinaga) y tiendas de personajes. Precio fijo de marca, no inflado.", "Typical price: ¥500–3,000.": "Precio típico: ¥500–3,000.", "Gift sweets and bentos; handy on the day you come back.": "Dulces y bentos para regalo; útil el día que regresan.", "Typical price: boxes ¥1,000–4,000.": "Precio típico: cajas ¥1,000–4,000.", "Eight floors of new, used and vintage cameras, with same-day film developing.": "Ocho pisos de cámaras nuevas, usadas y vintage, con revelado de rollo el mismo día.", "Used lenses ≈¥15,000–200,000; the used floor is 4F.": "Lentes usados ≈¥15,000–200,000; el piso de usado es el 4.", "Used gear priced better than many Shinjuku shops, with a warranty; its \"junk\" store has cheap accessories. One stop from Koenji.": "Usado a mejor precio que muchas tiendas de Shinjuku, con garantía; su tienda de «junk» tiene accesorios baratos. A una estación de Koenji.", "Typical price: ≈¥10,000–150,000.": "Precio típico: ≈¥10,000–150,000.", "Dozens of Mandarake shops in one building: manga, figures, retro toys. Opens at 12:00.": "Decenas de tiendas Mandarake en un edificio: manga, figuras, juguetes retro. Abre a las 12:00.", "Typical price: ¥300–50,000.": "Precio típico: ¥300–50,000.", "New, used and vintage watches (Seiko, Grand Seiko, Rolex, Omega) with English-speaking staff.": "Relojes nuevos, usados y vintage (Seiko, Grand Seiko, Rolex, Omega) con personal que habla inglés.", "Typical price: from ≈¥30,000.": "Precio típico: desde ≈¥30,000.", "Tiny, beautifully curated vintage shop in Koenji, hard to find and worth it.": "Tienda vintage diminuta y muy bien curada en Koenji; cuesta encontrarla y vale la pena.", "≈¥3,000–20,000.": "≈¥3,000–20,000.", "A small basement shop at the east end of Nishiki: knives from all over Japan with steel and origin explained, no pressure to buy. Opens at 12:00.": "Tienda chica en un sótano al este de Nishiki: cuchillos de todo Japón con acero y origen explicados, sin presión para comprar. Abre a las 12:00.", "Typical price: ≈¥8,000–40,000.": "Precio típico: ≈¥8,000–40,000.", "Handmade makeup brushes from Hiroshima, among the best in the world, with advice and tax-free.": "Brochas de maquillaje hechas a mano en Hiroshima, de las mejores del mundo, con asesoría y tax-free.", "Typical price: ≈¥2,000–20,000.": "Precio típico: ≈¥2,000–20,000.", "Incense, washi paper, brushes and cards since 1663; real gifts, not generic souvenirs.": "Incienso, papel washi, pinceles y tarjetas desde 1663; regalos auténticos, no recuerdos genéricos.", "Typical price: ¥500–5,000.": "Precio típico: ¥500–5,000.", "Used cameras and lenses on Shijo. Leica and Hasselblad cost more than in Tokyo; used Fujifilm and Sony are good.": "Cámaras y lentes usados en Shijo. Leica y Hasselblad salen más caros que en Tokio; Fujifilm y Sony usados, buenos.", "Second-hand designer and outdoor brands at great prices, near Nishiki.": "Diseñador y marcas outdoor de segunda mano a muy buen precio, junto a Nishiki.", "≈¥2,000–50,000. Fitting rooms and careful condition checks.": "≈¥2,000–50,000. Tienen probadores y revisan el estado con cuidado.", "Kyoto gift sweets (yatsuhashi, Malebranche \"Cha no Ka\") at store prices, with the tourist card.": "Dulces de Kioto para regalo (yatsuhashi, Malebranche «Cha no Ka») a precio de tienda, con tarjeta de turista.", "Handmade Kyoto canvas bags sold only at their own shop; they last for decades. Closed Tuesday: go on the 18th.": "Bolsas de lona hechas a mano en Kioto que solo se venden en su tienda; duran décadas. Cierra martes: vayan el 18.", "Typical price: ≈¥3,000–30,000.": "Precio típico: ≈¥3,000–30,000.", "Camellia (tsubaki) oil for hair and skin since 1865, plus kanzashi hairpins. Usually closed Wednesday; Google shows it open on the 18th, so double-check.": "Aceite de camelia (tsubaki) para cabello y piel desde 1865, y peinetas kanzashi. Suele cerrar miércoles; Google lo marca abierto el 18, confírmenlo.", "Typical price: ≈¥1,500–30,000.": "Precio típico: ≈¥1,500–30,000.", "Handmade Kiyomizu-yaki ceramics on the Kiyomizu slope; mid-range pieces are reasonably priced.": "Cerámica Kiyomizu-yaki hecha a mano en la cuesta de Kiyomizu; las piezas medianas tienen precio razonable.", "Typical price: ≈¥1,000–20,000.": "Precio típico: ≈¥1,000–20,000.", "Gift sweets before the train to Osaka.": "Dulces de regalo antes del tren a Osaka.", "Electronics and cosmetics with a tourist coupon, attached to the station.": "Electrónica y cosmética con cupón de turista, pegado a la estación.", "Typical price: list price.": "Precio típico: precio de lista.", "The biggest electronics store in Kyoto, across from the station, with cameras and cosmetics.": "La electrónica más grande de Kioto, frente a la estación, con cámaras y cosmética.", "List prices with tax-free.": "Precio de lista con tax-free.", "The chain was born in Osaka and has some of its lowest prices here; there are several on the same street, so compare.": "La cadena nació en Osaka y aquí tiene de sus precios más bajos; hay varias en la misma calle, comparen.", "Uniqlo's Osaka flagship on Shinsaibashi-suji, with Japan-only lines.": "La tienda insignia de Uniqlo en Osaka, en Shinsaibashi-suji, con líneas solo de Japón.", "≈¥1,000–15,000.": "≈¥1,000–15,000.", "British vintage in Amerikamura: Burberry, Vivienne Westwood and one-off pieces.": "Vintage británico en Amerikamura: Burberry, Vivienne Westwood y piezas únicas.", "≈¥3,000–40,000.": "≈¥3,000–40,000.", "Small, much-loved vintage shop with rare sweatshirts and denim; the owner explains every piece.": "Tienda vintage pequeña y muy querida, con sudaderas y mezclilla raras; el dueño explica cada pieza.", "≈¥5,000–30,000. Closed Wednesdays.": "≈¥5,000–30,000. Cierra los miércoles.", "Big vintage shop on Horie's Orange Street with friendly styling help.": "Tienda vintage grande en la Orange Street de Horie, con ayuda para combinar.", "≈¥2,000–15,000.": "≈¥2,000–15,000.", "Five floors of Gunpla, model kits, scale cars and trains, at discounted prices.": "Cinco pisos de Gunpla, maquetas, autos a escala y trenes, con precios con descuento.", "Typical price: ¥1,000–20,000.": "Precio típico: ¥1,000–20,000.", "They let you try the camera with a battery and card; good used prices and English-speaking staff.": "Te dejan probar la cámara con batería y memoria; buenos precios en usado y personal que habla inglés.", "Typical price: ≈¥10,000–200,000.": "Precio típico: ≈¥10,000–200,000.", "A huge cosmetics floor and one of Japan's best food halls; tourist card.": "Piso de cosméticos enorme y uno de los mejores sótanos de comida de Japón; tarjeta de turista.", "Typical price: ≈¥1,000–50,000.": "Precio típico: ≈¥1,000–50,000.", "Huge selection and multilingual staff; you can test knives on vegetables, and they hand-engrave.": "Surtido enorme, personal en varios idiomas; te dejan probar cortando verduras y graban a mano.", "Typical price: ≈¥8,000–80,000.": "Precio típico: ≈¥8,000–80,000.", "Department store with a tourist card and a food hall.": "Tienda departamental con tarjeta de turista y sótano de comida.", "Typical price: ≈¥1,000–30,000.": "Precio típico: ≈¥1,000–30,000.", "Luxury cosmetics and gift food with the tourist card.": "Cosmética de lujo y comida para regalo con tarjeta de turista.", "Tansan senbei made with the spring's carbonated water; they hand out a free sample.": "Tansan senbei hechas con agua gasificada del manantial; regalan una de prueba.", "Typical price: ≈¥900 a box.": "Precio típico: ≈¥900 caja.", "Makeup brushes and calligraphy brushes from Kumano, the town that makes most of Japan's brushes. By the Shinkansen exit; tax-free.": "Brochas de maquillaje y pinceles de Kumano, el pueblo que hace la mayoría de las brochas de Japón. Junto a la salida del Shinkansen; tax-free.", "Typical price: ≈¥2,000–15,000.": "Precio típico: ≈¥2,000–15,000.", "The workshop of a yosegi master (Hakone wood marquetry): puzzle boxes, coasters and chopstick rests. On the bus between Hakone-Yumoto and Moto-Hakone.": "Taller del maestro de yosegi (marquetería de Hakone): cajas secretas, posavasos y portapalillos auténticos. En el bus entre Hakone-Yumoto y Moto-Hakone.", "Typical price: ≈¥500–30,000.": "Precio típico: ≈¥500–30,000.", "Highway bus from Tokyo Station Yaesu or Busta Shinjuku · ≈1 h": "Autobús desde Tokyo Station Yaesu o Busta Shinjuku · ≈1 h", "Tokyo's biggest outlet, about 300 stores, over the Tokyo Bay Aqua-Line; quieter than Gotemba.": "El outlet más grande cerca de Tokio, unas 300 tiendas, cruzando la bahía por la Aqua-Line; menos lleno que Gotemba.", "Keio line from Shinjuku to Minami-Osawa · ≈40 min": "Línea Keio de Shinjuku a Minami-Osawa · ≈40 min", "The easiest outlet by train, right by the station; smaller, best for sports brands.": "El outlet más fácil en tren, junto a la estación; más chico, mejor para marcas deportivas.", "Nankai or JR to Rinku Town · ≈40 min from Namba; 1 stop from Kansai Airport": "Nankai o JR a Rinku Town · ≈40 min desde Namba; a una estación del aeropuerto de Kansai", "About 250 stores by the sea, with coin lockers for luggage.": "Unas 250 tiendas frente al mar, con lockers para maletas.", "Bus from Osaka (Umeda) or Sannomiya · ≈40–60 min": "Bus desde Osaka (Umeda) o Sannomiya · ≈40–60 min", "Big open-air outlet with Coach, Tory Burch, Furla and Japanese brands, plus a huge Aeon mall across the street.": "Outlet grande al aire libre con Coach, Tory Burch, Furla y marcas japonesas, y un Aeon enorme enfrente.", "Bus from JR stations in Shiga or by car · ≈1 h from Kyoto": "Bus desde estaciones JR de Shiga o en auto · ≈1 h desde Kioto", "More local shoppers and Japanese brands than the city outlets.": "Más compradores locales y marcas japonesas que los outlets de las ciudades.", "Bus from Hiroshima Station · ≈45 min": "Bus desde la estación de Hiroshima · ≈45 min", "Large outlet mall with Japanese and international brands and a 3COINS.": "Outlet grande con marcas japonesas e internacionales y un 3COINS.", "JR from Okayama to Kurashiki · 15 min, then a short walk": "JR de Okayama a Kurashiki · 15 min, y unos minutos a pie", "Small outlet next to Kurashiki station, an option on the way back from Naoshima.": "Outlet pequeño junto a la estación de Kurashiki, opción de regreso de Naoshima.", "Bus from Sengokuhara · 30 min": "Bus desde Sengokuhara · 30 min", "Outlet mall with a direct view of Mt Fuji.": "Outlet con vista directa al monte Fuji, unas 290 tiendas.", "Shopping": "Compras"});
 Object.assign(ES, {"Japan's biggest e-sports and digital game park, on two floors at the foot of Tokyo Tower: VR rides, racing simulators, a giant climbing game and robot fights.": "El parque de e-sports y juegos digitales más grande de Japón, en dos pisos al pie de Tokyo Tower: juegos de VR, simuladores de carreras, escalada interactiva y peleas de robots.", "Day pass ≈¥4,400–5,400, cheaper after 17:00; robot fights cost extra. Reviews are mixed: go on a weekday evening to avoid lines.": "Pase del día ≈¥4,400–5,400, más barato después de las 17:00; las peleas de robots se pagan aparte. Las reseñas son mixtas: vayan entre semana en la tarde-noche para evitar filas.", "A whole building of escape games and puzzle adventures in Kabukicho, with several games in English.": "Un edificio entero de escape rooms y juegos de acertijos en Kabukicho, con varios juegos en inglés.", "≈¥2,000–4,000 per game; book the English ones online and bring a charged phone.": "≈¥2,000–4,000 por juego; reserven en línea los que son en inglés y lleven el celular cargado.", "Team RPG adventure inside Tokyu Kabukicho Tower: pick an avatar and clear physical and puzzle quests as a party of 2–3, in English.": "Aventura tipo RPG en equipo dentro de Tokyu Kabukicho Tower: eligen avatar y superan retos físicos y de acertijos en grupos de 2 o 3, en inglés.", "≈¥2,000–2,250 per person; register online first. Groups of 2–3 only.": "≈¥2,000–2,250 por persona; regístrense en línea antes. Solo grupos de 2 o 3.", "The world's largest capsule-toy shop, with thousands of gashapon machines in Sunshine City.": "La tienda de cápsulas (gashapon) más grande del mundo, con miles de máquinas en Sunshine City.", "≈¥200–500 per capsule; change machines take ¥500 coins and bills.": "≈¥200–500 por cápsula; las máquinas de cambio aceptan monedas de ¥500 y billetes.", "Hundreds of capsule-toy machines on Akihabara's main street, from anime to miniature food.": "Cientos de máquinas de cápsulas en la calle principal de Akihabara, de anime a comida en miniatura.", "≈¥100–500 per capsule.": "≈¥100–500 por cápsula.", "Bandai Namco's active game park: race against animals, dodge balls and team challenges, at Expo City next to Expo '70 Park.": "El parque de juegos activos de Bandai Namco: carreras contra animales, quemados y retos en equipo, en Expo City junto al parque de la Expo '70.", "≈¥2,000–4,000 for 120 minutes or a day pass; free lockers.": "≈¥2,000–4,000 por 120 minutos o el pase del día; lockers gratis."});
+Object.assign(ES, {"My trip":"Mi viaje"});
 const ES_HTML = {"footer1":"Fechas del follaje: pronósticos 2026 de <a href=\"https://www.nippon.com/en/japan-data/h02888/\" target=\"_blank\" rel=\"noopener\">nippon.com</a> y <a href=\"https://www.japan-guide.com/autumn-colors/\" target=\"_blank\" rel=\"noopener\">japan-guide.com</a>. Fechas de las iluminaciones de Kioto de <a href=\"https://livejapan.com/id/in-kansai/in-pref-kyoto/in-kyoto-station_to-ji-temple/article-a2001100/\" target=\"_blank\" rel=\"noopener\">LIVE JAPAN</a>. Renovaciones según la lista de obras de japan-guide.com (actualizada el 1 oct 2026).","footer2":"Los horarios, precios y reglas de reservación cambian; confírmalos en el sitio oficial antes de ir. Mapa base: Natural Earth; contorno de Naoshima del Global Map Japan del GSI. Calles, estaciones, vías de tren y ríos: &copy; <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener\">colaboradores de OpenStreetMap</a>, bajo la Open Database License. Búsqueda de direcciones: OpenStreetMap Nominatim."};
 let LANG = "es"; try{ const s = localStorage.getItem("jp-lang"); if(s==="en"||s==="es") LANG = s; }catch(e){}
 const t = s => (LANG==="es" && s && ES[s]) || s;
@@ -3605,7 +3686,7 @@ function setZone(id, fromHash, keepView){
   const top = document.querySelector("main").getBoundingClientRect().top + scrollY - barH() - 8;
   if(scrollY>top) scrollTo({top, behavior: reduced?"auto":"smooth"});
 }
-addEventListener("hashchange",()=>{const h=location.hash.slice(1).toLowerCase(); if(h==="all"||zoneById[h]) setZone(h,true); else if(["plan","near","guide","mine","tips"].includes(h)) setView(h, true);});
+addEventListener("hashchange",()=>{const h=location.hash.slice(1).toLowerCase(); if(h==="all"||zoneById[h]) setZone(h,true); else if(["plan","near","guide","mine","tips","trip"].includes(h)) setView(h, true);});
 
 /* ---------- filters ---------- */
 const catChips = document.getElementById("catChips"), flagChips = document.getElementById("flagChips"), areaChips = document.getElementById("areaChips");
@@ -3836,7 +3917,7 @@ function renderList(){
   }
   content.innerHTML = html;
 }
-function renderContent(){ if(state.view==="plan") renderPlan(); else if(state.view==="near") renderNear(); else if(state.view==="mine") renderMine(); else if(state.view==="tips") renderTips(); else renderList(); }
+function renderContent(){ if(state.view==="plan") renderPlan(); else if(state.view==="near") renderNear(); else if(state.view==="mine") renderMine(); else if(state.view==="tips") renderTips(); else if(state.view==="trip") renderTrip(); else renderList(); }
 content.addEventListener("click",e=>{
   if(e.target.closest("a")) return;
   const rt = e.target.closest("[data-route]"); if(rt){ e.stopPropagation(); openRoute(rt.dataset.route); return; }
@@ -4547,11 +4628,12 @@ function renderPlan(){
     return `<li class="day${d.trip?" trip":""}${isToday?" today":""}${selDay===d.d?" sel":""}" data-day="${d.d}" id="day-${d.d}" tabindex="0">
       <div class="dd"><span class="wd">${WDAY[LANG][dt.getDay()]}</span><span class="dn">${dt.getDate()}</span><span class="mo">${MON[LANG][dt.getMonth()]}</span></div>
       <details class="dday" data-dday="${d.d}"${DOPEN.has(d.d)?" open":""}><summary><span class="dsm"><h3>${esc(L.t)}</h3>
-        <span class="tagrow">${isToday?`<span class="tg today">${t("Today")}</span>`:""}${d.trip?`<span class="tg trip">${t("Day trip")}</span>`:""}${d.hol?`<span class="tg">${t("Holiday")}</span>`:""}<span class="dpeek">${esc(DAY_SLOTS.flatMap(k=>L[k]||[]).filter(x=>x.startsWith("★")).map(x=>x.slice(1)).slice(0,3).join(" · "))}</span></span></span></summary>
+        <span class="tagrow">${isToday?`<span class="tg today">${t("Today")}</span>`:""}${d.trip?`<span class="tg trip">${t("Day trip")}</span>`:""}${d.hol?`<span class="tg">${t("Holiday")}</span>`:""}${wxChip(d)}<span class="dpeek">${esc(DAY_SLOTS.flatMap(k=>L[k]||[]).filter(x=>x.startsWith("★")).map(x=>x.slice(1)).slice(0,3).join(" · "))}</span></span></span></summary>
         <div class="slots">${hl}</div>
         ${L.mv?`<div class="mv">${STAI}<span>${esc(L.mv)}</span></div>`:""}
         ${L.alt && L.alt!=="—"?`<div class="alt">${svgI('<path d="M4 12h12M12 6l6 6-6 6"/>')}<span><b>${t("Day trip instead:")}</b> ${esc(L.alt)}</span></div>`:""}
         ${h?`<div class="htl" data-hotel="${h.id}">${BED}<span>${t("Night:")} ${esc(hName(h))}</span></div>`:""}
+        ${tripDayHTML(d, h)}
         ${recsHTML(d, L)}
         <div class="dacts">${d.z.filter(z=>zoneById[z]).map(z=>`<button type="button" class="act" data-dayguide="${z}">${PINI}${t("Open")} ${esc(t(zoneById[z].name))}</button>`).join("")}</div>
       </details></li>`;
@@ -4813,7 +4895,7 @@ function syncNav(){
   document.querySelectorAll("[data-nav]").forEach(a=>{ if(a.dataset.nav===state.view && !a.classList.contains("brand")) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
 }
 function setView(v, fromHash){
-  if(!["guide","plan","near","mine","tips"].includes(v)) v = "guide";
+  if(!["guide","plan","near","mine","tips","trip"].includes(v)) v = "guide";
   state.view = v; syncNav(); closePanel();
   if(!fromHash){ try{ history.replaceState(null,"","#"+(v==="guide"?state.zone:v)); }catch(e){} }
   if(v==="near" && !ME) locate(true);
@@ -5314,7 +5396,7 @@ renderMap = function(refit){ _renderMapLists(refit); if(state.view==="mine") dra
 const _setViewLists = setView;
 setView = function(v, fromHash){ if(v==="mine") mineFit = true; _setViewLists(v, fromHash); syncMapVis(); };
 function syncMapVis(){
-  const hide = state.view==="tips";
+  const hide = state.view==="tips" || state.view==="trip";
   document.querySelector("main.layout").classList.toggle("no-map", hide);
   if(!hide && map) setTimeout(()=>map.invalidateSize(), 30);
 }
@@ -6002,7 +6084,7 @@ function renderTips(){
   content.querySelectorAll("a[data-same]").forEach(a=>a.removeAttribute("target"));
 }
 content.addEventListener("toggle", e=>{
-  const d = e.target; if(!d.matches || !d.matches(".tip-cat")) return;
+  const d = e.target; if(!d.matches || !d.matches(".tip-cat[data-tipcat]")) return;
   if(d.open) TIPS_OPEN.add(d.dataset.tipcat); else TIPS_OPEN.delete(d.dataset.tipcat);
   store.set("jp-tips-open", [...TIPS_OPEN]);
 }, true);
@@ -6012,6 +6094,331 @@ content.addEventListener("click", e=>{
   content.querySelectorAll(".tip-cat").forEach(d=>{ d.open = on; });
 });
 
+/* ===================== MY TRIP: taxi cards, bookings, weather, group expenses ===================== */
+const T2 = (en, es) => LANG==="es" ? es : en;
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+const yenX = n => "¥" + Math.round(n).toLocaleString("en-US");
+
+/* ---------- hotel cards for taxis ---------- */
+const TAXI_JA = {
+  h1:{jn:"Granado Roppongi", ja:"〒107-0052 東京都港区赤坂2-22-12"},
+  h2:{jn:"強羅温泉 桐谷箱根荘", ja:"〒250-0408 神奈川県足柄下郡箱根町強羅1320-598", tel:"0460-82-2246"},
+  h3:{jn:"RESI STAY ANDON", ja:"〒604-8251 京都府京都市中京区三条油小路町173-6"},
+  h4:{jn:"Lumiere Higashi-Shinsaibashi", ja:"〒542-0083 大阪府大阪市中央区東心斎橋1-5-2"}
+};
+let TAXI_EDIT = store.get("jp-taxi", {});
+function taxiInfo(h){
+  const e = TAXI_EDIT[h.id] || {}, b = TAXI_JA[h.id] || {};
+  return {name: e.name || b.jn || (h.generic ? "" : h.name), ja: e.addr || b.ja || "", en: h.addr || "", tel: e.tel || b.tel || "", edited: !!(e.name || e.addr || e.tel)};
+}
+function taxiCardHTML(h){
+  const i = taxiInfo(h);
+  const need = !i.ja;
+  return `<div class="txc">
+    <div class="txc-h"><b>${esc(hName(h))}</b><small>${esc(hotelDates(h))}</small></div>
+    ${need ? `<p class="gs-note">${T2("Type the hotel's name and address from your booking (Booking, Airbnb, email), or open its Google Maps link.","Escribe el nombre y la dirección del hotel de tu reserva (Booking, Airbnb, correo), o abre su liga de Google Maps.")}</p>` :
+      `<p class="txc-ja">${esc(i.name)}<br>${esc(i.ja)}${i.tel?`<br><a href="tel:${esc(i.tel.replace(/[^\d+]/g,""))}">☎ ${esc(i.tel)}</a>`:""}</p>`}
+    <div class="txc-a">
+      ${!need ? `<button type="button" class="act pri" data-taxi="${h.id}">🚕 ${T2("Show to the driver","Mostrar al taxista")}</button>` : ""}
+      <a class="act" href="${esc(hotelMap(h))}" target="_blank" rel="noopener">${T2("Google Maps","Google Maps")}</a>
+      <button type="button" class="act" data-taxiedit="${h.id}">${need ? T2("Add address","Agregar dirección") : T2("Edit","Editar")}</button>
+    </div>
+    <form class="txc-f" data-f="taxi" data-h="${h.id}" hidden>
+      <label>${T2("Hotel name","Nombre del hotel")}<input name="name" value="${esc(i.name)}" autocomplete="off"></label>
+      <label>${T2("Address (Japanese if you have it)","Dirección (en japonés si la tienes)")}<textarea name="addr" rows="2">${esc(i.ja)}</textarea></label>
+      <label>${T2("Hotel phone (optional)","Teléfono del hotel (opcional)")}<input name="tel" type="tel" value="${esc(i.tel)}"></label>
+      <div class="txc-a"><button class="act pri" type="submit">${T2("Save","Guardar")}</button>${i.edited?`<button class="act" type="button" data-taxireset="${h.id}">${T2("Reset","Restablecer")}</button>`:""}</div>
+    </form>
+  </div>`;
+}
+function openTaxi(id){
+  const h = hotelById[id]; if(!h) return;
+  const i = taxiInfo(h);
+  if(!i.ja){ setView("trip"); setTimeout(()=>{ const f = document.querySelector(`form[data-f="taxi"][data-h="${id}"]`); if(f){ f.hidden = false; f.scrollIntoView({block:"center"}); } }, 80); return; }
+  ovlOpen(`<div class="taxi-big">
+    <p class="tb-say">この住所までお願いします。</p>
+    <p class="tb-es">${T2("Please take me to this address.","Por favor, lléveme a esta dirección.")}</p>
+    <p class="tb-name">${esc(i.name)}</p>
+    <p class="tb-addr">${esc(i.ja)}</p>
+    ${i.tel ? `<p class="tb-en">☎ ${esc(i.tel)}</p>` : ""}
+    ${i.en && i.en !== i.ja ? `<p class="tb-en">${esc(i.en)}</p>` : ""}
+    <div class="txc-a"><button type="button" class="say" data-say="この住所までお願いします">🔊</button><a class="act" href="${esc(hotelMap(h))}" target="_blank" rel="noopener">Google Maps</a></div>
+  </div>`, true);
+}
+
+/* ---------- overlay ---------- */
+const OVL = document.createElement("div");
+OVL.className = "ovl"; OVL.hidden = true;
+OVL.innerHTML = `<div class="ovl-in" role="dialog" aria-modal="true"><button type="button" class="ovl-x" aria-label="Close">×</button><div class="ovl-c"></div></div>`;
+document.body.appendChild(OVL);
+function ovlOpen(html, big){ OVL.querySelector(".ovl-c").innerHTML = html; OVL.classList.toggle("big", !!big); OVL.hidden = false; document.documentElement.classList.add("ovl-on"); }
+function ovlClose(){ OVL.hidden = true; document.documentElement.classList.remove("ovl-on"); }
+OVL.addEventListener("click", e=>{ if(e.target === OVL || e.target.closest(".ovl-x")) ovlClose(); });
+addEventListener("keydown", e=>{ if(e.key==="Escape" && !OVL.hidden) ovlClose(); });
+
+/* ---------- bookings ---------- */
+let RESV = store.get("jp-resv", []);
+const saveResv = () => { try{ localStorage.setItem("jp-resv", JSON.stringify(RESV)); return true; }catch(e){ toast(T2("Not enough space to save the image; keep the code instead.","No hay espacio para guardar la imagen; guarda solo el código.")); return false; } };
+const byWhen = (a,b) => (a.d+(a.tm||"99")).localeCompare(b.d+(b.tm||"99"));
+const dayOpts = sel => DAYS.map(d=>`<option value="${d.d}"${d.d===sel?" selected":""}>${fmtD(d.d)} · ${esc((d[LANG]||d.en).t)}</option>`).join("");
+let RESV_EDIT = null;
+function resvFormHTML(r){
+  r = r || {d: (DAYS.find(d=>d.d>=todayISO())||DAYS[0]).d};
+  return `<form class="rsf" data-f="resv" data-id="${r.id||""}">
+    <label>${T2("What","Qué")}<input name="t" required value="${esc(r.t||"")}" placeholder="${T2("e.g. Shibuya Sky 16:20","ej. Shibuya Sky 16:20")}"></label>
+    <div class="rsf2"><label>${T2("Day","Día")}<select name="d">${dayOpts(r.d)}</select></label><label>${T2("Time","Hora")}<input type="time" name="tm" value="${esc(r.tm||"")}"></label></div>
+    <label>${T2("Place","Lugar")}<input name="pl" value="${esc(r.pl||"")}"></label>
+    <label>${T2("Confirmation code","Código de confirmación")}<input name="code" value="${esc(r.code||"")}" autocomplete="off"></label>
+    <label>${T2("Link (ticket or email)","Liga (boleto o correo)")}<input name="url" type="url" value="${esc(r.url||"")}"></label>
+    <label>${T2("Notes","Notas")}<textarea name="note" rows="2">${esc(r.note||"")}</textarea></label>
+    <label>${T2("Photo of the ticket or QR (optional)","Foto del boleto o QR (opcional)")}<input name="img" type="file" accept="image/*"></label>
+    ${r.img?`<p class="gs-note">${T2("A photo is saved; choose another to replace it.","Ya hay una foto guardada; elige otra para reemplazarla.")}</p>`:""}
+    <div class="txc-a"><button class="act pri" type="submit">${r.id?T2("Save changes","Guardar cambios"):T2("Add booking","Agregar reservación")}</button>${r.id?`<button class="act" type="button" data-rcancel="1">${T2("Cancel","Cancelar")}</button>`:""}</div>
+  </form>`;
+}
+function resvListHTML(){
+  if(!RESV.length) return `<p class="gs-note">${T2("No bookings yet. Add tickets, restaurant bookings and tours with their time and code; they also show up in that day of the plan.","Aún no hay reservaciones. Agrega boletos, restaurantes y tours con su hora y código; también aparecen en ese día del plan.")}</p>`;
+  const today = todayISO();
+  return `<ul class="rsl">${[...RESV].sort(byWhen).map(r=>`<li class="${r.d<today?"past":""}">
+    <div class="rsl-w"><b>${fmtD(r.d)}</b><span>${esc(r.tm||"—")}</span></div>
+    <div class="rsl-b"><b>${esc(r.t)}</b>${r.pl?`<br><small>${esc(r.pl)}</small>`:""}
+      ${r.code?`<div class="rsl-code"><span class="code">${esc(r.code)}</span><button type="button" class="act" data-copy="${esc(r.code)}">${T2("Copy","Copiar")}</button></div>`:""}
+      ${r.note?`<p>${esc(r.note)}</p>`:""}
+      <div class="txc-a">${r.url?`<a class="act" href="${esc(r.url)}" target="_blank" rel="noopener">${T2("Open link","Abrir liga")}</a>`:""}${r.img?`<button type="button" class="act" data-rimg="${r.id}">${T2("Ticket / QR","Boleto / QR")}</button>`:""}<button type="button" class="act" data-redit="${r.id}">${T2("Edit","Editar")}</button><button type="button" class="act" data-rdel="${r.id}">${T2("Delete","Borrar")}</button></div>
+    </div></li>`).join("")}</ul>`;
+}
+function shrinkImage(file){
+  return new Promise(res=>{
+    const fr = new FileReader();
+    fr.onload = ()=>{ const im = new Image(); im.onload = ()=>{ const k = Math.min(1, 1000/Math.max(im.width, im.height)); const c = document.createElement("canvas"); c.width = Math.round(im.width*k); c.height = Math.round(im.height*k); c.getContext("2d").drawImage(im, 0, 0, c.width, c.height); res(c.toDataURL("image/jpeg", 0.72)); }; im.onerror = ()=>res(null); im.src = fr.result; };
+    fr.onerror = ()=>res(null); fr.readAsDataURL(file);
+  });
+}
+
+/* ---------- weather (Open-Meteo, cached for offline) ---------- */
+const WX_NORM = {tokyo:[17,10,13,6], nikko:[11,3,7,0], hakone:[14,6,10,3], kyoto:[17,8,13,4], nara:[16,6,12,3], osaka:[18,10,14,6], kobe:[18,10,14,6], hiroshima:[17,8,13,4], miyajima:[17,9,13,5], naoshima:[17,9,13,5], kanazawa:[15,8,11,5], takayama:[11,2,7,-1], shirakawago:[10,2,6,-1]};
+let WX = store.get("jp-wx", null), WX_BUSY = false;
+const WXC = c => c===0?["☀️","Clear","Despejado"]:c<=2?["🌤️","Partly cloudy","Parcialmente nublado"]:c===3?["☁️","Cloudy","Nublado"]:c<=48?["🌫️","Fog","Niebla"]:c<=57?["🌦️","Drizzle","Llovizna"]:c<=67?["🌧️","Rain","Lluvia"]:c<=77?["🌨️","Snow","Nieve"]:c<=82?["🌧️","Showers","Chubascos"]:c<=86?["🌨️","Snow showers","Nevadas"]:["⛈️","Thunderstorms","Tormentas"];
+function wxZones(){ const t = todayISO(); return [...new Set(DAYS.filter(d=>d.d>=t).map(d=>d.z[0]).filter(z=>zoneById[z]))]; }
+async function wxFetch(force){
+  if(WX_BUSY || !navigator.onLine) return;
+  if(!force && WX && Date.now()-WX.ts < 3*3600e3) return;
+  const zs = wxZones(); if(!zs.length) return;
+  WX_BUSY = true;
+  try{
+    const lat = zs.map(z=>zoneById[z].c[0]).join(","), lng = zs.map(z=>zoneById[z].c[1]).join(",");
+    const r = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FTokyo&forecast_days=16`);
+    if(!r.ok) throw 0;
+    let j = await r.json(); if(!Array.isArray(j)) j = [j];
+    const z = {}; zs.forEach((id,i)=>{ const d = j[i] && j[i].daily; if(d) z[id] = {t:d.time, hi:d.temperature_2m_max, lo:d.temperature_2m_min, p:d.precipitation_probability_max, c:d.weather_code}; });
+    WX = {ts:Date.now(), z}; store.set("jp-wx", WX);
+    if(state.view==="trip"){ const b = content.querySelector('[data-tripsec="wx"] .trip-body'); if(b) b.innerHTML = wxSectionHTML(); }
+    else if(state.view==="plan") renderContent();
+  }catch(e){ if(force) toast(T2("Couldn't load the forecast; showing typical weather.","No se pudo cargar el pronóstico; se muestra el clima promedio.")); }
+  WX_BUSY = false;
+}
+function wxFor(iso, zone){
+  const f = WX && WX.z && WX.z[zone];
+  if(f){ const i = f.t.indexOf(iso); if(i >= 0 && f.hi[i] != null){ const [ic, en, es] = WXC(f.c[i]); return {hi:Math.round(f.hi[i]), lo:Math.round(f.lo[i]), p:f.p[i], code:f.c[i], ic, txt:T2(en, es), src:"fc"}; } }
+  const n = WX_NORM[zone]; if(!n) return null;
+  const k = Math.max(0, Math.min(1, (pd(iso) - pd("2026-11-15")) / (pd("2026-12-01") - pd("2026-11-15"))));
+  return {hi:Math.round(n[0]+(n[2]-n[0])*k), lo:Math.round(n[1]+(n[3]-n[1])*k), p:null, code:null, ic:"🌡️", txt:T2("Typical for the date","Promedio para la fecha"), src:"avg"};
+}
+function wear(w, zone){
+  const L = [];
+  if(w.lo <= 2) L.push(T2("Heavy coat, hat, gloves and thermals","Abrigo grueso, gorro, guantes y térmica"));
+  else if(w.lo <= 7 || w.hi <= 12) L.push(T2("Warm coat and scarf","Abrigo o chamarra abrigadora y bufanda"));
+  else if(w.hi <= 18) L.push(T2("Layers: sweater and a light jacket","Capas: suéter y chamarra ligera"));
+  else L.push(T2("Light clothes and a sweater","Ropa ligera y un suéter"));
+  const wet = (w.p != null && w.p >= 50) || (w.code != null && ((w.code>=51 && w.code<=67) || (w.code>=80 && w.code<=82) || w.code>=95));
+  if(wet) L.push(T2("umbrella","paraguas"));
+  if((w.code != null && ((w.code>=71 && w.code<=77) || w.code===85 || w.code===86)) || (w.lo <= 0 && ["takayama","shirakawago","nikko"].includes(zone))) L.push(T2("shoes with grip for ice or snow","zapatos con suela para hielo o nieve"));
+  if(w.hi - w.lo >= 9) L.push(T2("an extra layer for the night","una capa extra para la noche"));
+  return {list:L, text:L.join(" · ")};
+}
+function wxChip(d){ const w = wxFor(d.d, d.z[0]); return w ? `<span class="tg wx">${w.ic} ${w.hi}°/${w.lo}°</span>` : ""; }
+function tripDayHTML(d, h){
+  const w = wxFor(d.d, d.z[0]), rs = RESV.filter(r=>r.d===d.d).sort(byWhen);
+  let o = "";
+  if(w){ const we = wear(w, d.z[0]); o += `<div class="dwx"><span>${w.ic} <b>${w.hi}° / ${w.lo}°</b>${w.p!=null?` · ☔ ${w.p}%`:""} · ${esc(w.txt)}</span><span class="dwx-w">👕 ${esc(we.text)}</span></div>`; }
+  if(rs.length) o += `<ul class="dres">${rs.map(r=>`<li>🎫 <b>${esc(r.tm||"")}</b> ${esc(r.t)}${r.code?` · <span class="code">${esc(r.code)}</span>`:""}${r.img?` <button type="button" class="act" data-rimg="${r.id}">QR</button>`:""}</li>`).join("")}</ul>`;
+  if(h) o += `<div class="txc-a"><button type="button" class="act" data-taxi="${h.id}">🚕 ${T2("Hotel card for the taxi","Tarjeta del hotel para el taxi")}</button></div>`;
+  return o ? `<div class="dtrip">${o}</div>` : "";
+}
+function wxSectionHTML(){
+  const today = todayISO();
+  const rows = DAYS.filter(d=>d.d>=today).map(d=>{
+    const z = d.z[0], w = wxFor(d.d, z); if(!w) return "";
+    const we = wear(w, z);
+    return `<li><div class="wx-d"><b>${fmtD(d.d)}</b><small>${esc(t(zoneById[z].name))}</small></div><div class="wx-i">${w.ic}</div><div class="wx-b"><b>${w.hi}° / ${w.lo}°</b>${w.p!=null?` · ☔ ${w.p}%`:""} · ${esc(w.txt)}${w.src==="avg"?` <small>(${T2("no forecast yet","aún sin pronóstico")})</small>`:""}<br><span>👕 ${esc(we.text)}</span></div></li>`;
+  }).join("");
+  const when = WX ? new Date(WX.ts).toLocaleString(LANG==="es"?"es-MX":"en-US", {day:"numeric", month:"short", hour:"2-digit", minute:"2-digit", hourCycle:"h23"}) : null;
+  return `<p class="gs-note">${when ? T2("Forecast from Open-Meteo, updated "+esc(when)+". Days beyond the 16-day forecast show typical weather for the date.","Pronóstico de Open-Meteo, actualizado "+esc(when)+". Los días fuera del pronóstico de 16 días muestran el clima promedio de la fecha.") : T2("Showing typical weather; connect to the internet to load the 16-day forecast.","Se muestra el clima promedio; conéctate a internet para cargar el pronóstico de 16 días.")}</p>
+    <div class="txc-a"><button type="button" class="act" data-wxnow="1">${T2("Update forecast","Actualizar pronóstico")}</button></div>
+    <ul class="wxl">${rows}</ul>
+    <p class="gs-note">${T2("Umbrellas cost ≈¥500–800 at any konbini; Uniqlo Heattech is the cheap thermal layer locals wear. Always handy: shoes that slip off easily for temples and ryokan, a small towel (many restrooms have no paper towels) and a bag for your trash.","Los paraguas cuestan ≈¥500–800 en cualquier konbini; el Heattech de Uniqlo es la capa térmica barata que usan los japoneses. Siempre útil: zapatos fáciles de quitar para templos y ryokan, una toalla pequeña (muchos baños no tienen papel para secarse) y una bolsa para su basura.")}</p>`;
+}
+
+/* ---------- group expenses ---------- */
+const EXP_CATS = {food:["🍜","Food","Comida"], move:["🚆","Transport","Transporte"], tix:["🎟️","Tickets","Entradas"], shop:["🛍️","Shopping","Compras"], stay:["🏨","Lodging","Hospedaje"], other:["✨","Other","Otro"]};
+let EXP = store.get("jp-exp", null) || {people:["Ximena","Persona 2","Persona 3","Persona 4","Persona 5"], rate:"", items:[], gone:[]};
+const saveExp = () => store.set("jp-exp", EXP);
+function expCalc(){
+  const n = EXP.people.length, paid = Array(n).fill(0), owe = Array(n).fill(0), cat = {};
+  let total = 0;
+  for(const x of EXP.items){
+    const split = (x.split||[]).filter(i=>i<n); if(!split.length || x.by >= n) continue;
+    total += x.amt; paid[x.by] += x.amt; cat[x.cat] = (cat[x.cat]||0) + x.amt;
+    const sh = Math.floor(x.amt / split.length), rem = x.amt - sh*split.length;
+    split.forEach((i,k)=>{ owe[i] += sh + (k < rem ? 1 : 0); });
+  }
+  const net = paid.map((p,i)=>p-owe[i]);
+  const cr = net.map((v,i)=>[i,v]).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]), db = net.map((v,i)=>[i,-v]).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]);
+  const pay = []; let a = 0, b = 0;
+  while(a < db.length && b < cr.length){ const m = Math.min(db[a][1], cr[b][1]); if(m > 0) pay.push([db[a][0], cr[b][0], m]); db[a][1] -= m; cr[b][1] -= m; if(db[a][1] <= 0) a++; if(cr[b][1] <= 0) b++; }
+  return {total, paid, owe, net, pay, cat};
+}
+const mxnX = v => { const r = parseFloat(EXP.rate) > 0 ? parseFloat(EXP.rate) : 1/RATE; return ` <small>≈ $${(v/r).toLocaleString("en-US",{maximumFractionDigits:0})} MXN</small>`; };
+function expSectionHTML(){
+  const c = expCalc(), P = EXP.people;
+  const ppl = P.map((p,i)=>`<label class="exp-p"><input name="p${i}" value="${esc(p)}" maxlength="18"></label>`).join("");
+  const opts = P.map((p,i)=>`<option value="${i}">${esc(p)}</option>`).join("");
+  const chks = P.map((p,i)=>`<label class="chkl"><input type="checkbox" name="s" value="${i}" checked> ${esc(p)}</label>`).join("");
+  const cats = Object.entries(EXP_CATS).map(([k,v])=>`<option value="${k}">${v[0]} ${T2(v[1],v[2])}</option>`).join("");
+  const td = DAYS.find(d=>d.d===todayISO()) ? todayISO() : DAYS[0].d;
+  const bal = P.map((p,i)=>`<li><b>${esc(p)}</b><span>${T2("paid","pagó")} ${yenX(c.paid[i])} · ${T2("share","le toca")} ${yenX(c.owe[i])}</span><span class="${c.net[i]>=0?"pos":"neg"}">${c.net[i]>=0?"+":"−"}${yenX(Math.abs(c.net[i]))}</span></li>`).join("");
+  const settle = c.pay.length ? `<ul class="exp-set">${c.pay.map(([f,to,m])=>`<li><b>${esc(P[f])}</b> → <b>${esc(P[to])}</b>: ${yenX(m)}${mxnX(m)}</li>`).join("")}</ul>` : `<p class="gs-note">${T2("Everyone is even.","Todos están a mano.")}</p>`;
+  const catRows = Object.entries(c.cat).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<li><span>${EXP_CATS[k]?EXP_CATS[k][0]+" "+T2(EXP_CATS[k][1],EXP_CATS[k][2]):k}</span><b>${yenX(v)}</b><i style="width:${c.total?Math.round(v/c.total*100):0}%"></i></li>`).join("");
+  const list = [...EXP.items].sort((a,b)=>(b.d+b.id).localeCompare(a.d+a.id)).map(x=>`<li><div><b>${esc(x.desc)}</b><small>${fmtD(x.d)} · ${EXP_CATS[x.cat]?EXP_CATS[x.cat][0]:""} · ${T2("paid by","pagó")} ${esc(P[x.by]||"?")} · ${T2("split","entre")} ${(x.split||[]).length}</small></div><b>${yenX(x.amt)}</b><button type="button" class="act" data-xdel="${x.id}" aria-label="${T2("Delete","Borrar")}">×</button></li>`).join("");
+  return `
+    <form class="rsf" data-f="exp">
+      <div class="rsf2"><label>${T2("What","Qué")}<input name="desc" required placeholder="${T2("e.g. Ramen dinner","ej. Cena de ramen")}"></label><label>${T2("Amount ¥","Monto ¥")}<input name="amt" type="number" inputmode="numeric" min="1" step="1" required></label></div>
+      <div class="rsf2"><label>${T2("Paid by","Pagó")}<select name="by">${opts}</select></label><label>${T2("Category","Categoría")}<select name="cat">${cats}</select></label></div>
+      <label>${T2("Day","Día")}<select name="d">${dayOpts(td)}</select></label>
+      <fieldset class="chks"><legend>${T2("Split between","Se divide entre")}</legend>${chks}</fieldset>
+      <div class="txc-a"><button class="act pri" type="submit">${T2("Add expense","Agregar gasto")}</button></div>
+    </form>
+    ${EXP.items.length ? `<div class="exp-sum"><div><small>${T2("Total","Total")}</small><b>${yenX(c.total)}</b>${mxnX(c.total)}</div><div><small>${T2("Per person (equal split)","Por persona (si fuera parejo)")}</small><b>${yenX(c.total/(P.length||1))}</b>${mxnX(c.total/(P.length||1))}</div></div>
+    <h4 class="exp-h">${T2("Who owes whom","Quién le paga a quién")}</h4>${settle}
+    <h4 class="exp-h">${T2("Balance per person","Balance por persona")}</h4><ul class="exp-bal">${bal}</ul>
+    ${catRows?`<h4 class="exp-h">${T2("By category","Por categoría")}</h4><ul class="exp-cat">${catRows}</ul>`:""}
+    ${list?`<h4 class="exp-h">${T2("Expenses","Gastos")}</h4><ul class="exp-l">${list}</ul>`:""}` : `<p class="gs-note">${T2("No expenses yet. Each time someone pays for the group, add it here: the app works out who owes whom with the fewest transfers.","Aún no hay gastos. Cada vez que alguien pague por el grupo, agréguenlo aquí: la app calcula quién le paga a quién con el menor número de transferencias.")}</p>`}
+    <details class="exp-cfg"${EXP.people.slice(1).some(p=>/^Persona \d$/.test(p))?" open":""}><summary>${T2("Names, exchange rate and sharing with the group","Nombres, tipo de cambio y compartir con el grupo")}</summary>
+      <form class="rsf" data-f="ppl"><fieldset class="chks"><legend>${T2("The group","El grupo")}</legend>${ppl}</fieldset>
+        <label>${T2("Yen per 1 MXN (leave empty to use ≈"+(1/RATE).toFixed(2)+")","Yenes por 1 MXN (déjalo vacío para usar ≈"+(1/RATE).toFixed(2)+")")}<input name="rate" type="number" step="0.01" min="0" value="${esc(EXP.rate||"")}" placeholder="${(1/RATE).toFixed(2)}"></label>
+        <div class="txc-a"><button class="act pri" type="submit">${T2("Save","Guardar")}</button></div></form>
+      <p class="gs-note">${T2("Expenses are saved on this phone. To combine them, one person shares the link and the others open it: expenses are merged, never duplicated. Write the names in the same order on every phone.","Los gastos se guardan en este celular. Para juntarlos, una persona comparte la liga y las demás la abren: los gastos se combinan, sin duplicarse. Escriban los nombres en el mismo orden en todos los celulares.")}</p>
+      <div class="txc-a"><button type="button" class="act" data-xshare="1">${T2("Share with the group","Compartir con el grupo")}</button><button type="button" class="act" data-xreset="1">${T2("Delete all","Borrar todo")}</button></div>
+      <form class="rsf" data-f="ximp"><label>${T2("If the link opens in the browser instead of the app, paste it here","Si la liga se abre en el navegador y no en la app, pégala aquí")}<textarea name="code" rows="2" placeholder="https://…#import=…"></textarea></label><div class="txc-a"><button class="act pri" type="submit">${T2("Combine","Combinar")}</button></div></form>
+    </details>`;
+}
+function expEncode(){ const j = JSON.stringify({p:EXP.people, i:EXP.items, g:EXP.gone}); return btoa(unescape(encodeURIComponent(j))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,""); }
+function expImport(code){
+  try{
+    const b = code.replace(/-/g,"+").replace(/_/g,"/");
+    const j = JSON.parse(decodeURIComponent(escape(atob(b))));
+    const gone = new Set([...(EXP.gone||[]), ...(j.g||[])]);
+    const have = new Map(EXP.items.map(x=>[x.id,x]));
+    (j.i||[]).forEach(x=>{ if(x && x.id && !have.has(x.id)) have.set(x.id, x); });
+    EXP.items = [...have.values()].filter(x=>!gone.has(x.id));
+    EXP.gone = [...gone];
+    const def = EXP.people.every((p,i)=>i===0 ? true : /^Persona \d$/.test(p));
+    if(Array.isArray(j.p) && j.p.length && def) EXP.people = j.p.slice(0, 8);
+    saveExp(); return true;
+  }catch(e){ return false; }
+}
+
+/* ---------- the view ---------- */
+let TRIP_OPEN = new Set(store.get("jp-trip-open", ["taxi","resv","wx","exp"]));
+function tripSec(id, ic, title, sub, body){
+  return `<details class="tip-cat trip-sec" data-tripsec="${id}"${TRIP_OPEN.has(id)?" open":""}><summary><span class="ti" aria-hidden="true">${ic}</span><span style="min-width:0"><h3>${title}</h3><p>${sub}</p></span></summary><div class="tip-body trip-body">${body}</div></details>`;
+}
+function renderTrip(){
+  const hs = HOTELS.filter(h=>h.out > todayISO());
+  const resvBody = (RESV_EDIT ? resvFormHTML(RESV.find(r=>r.id===RESV_EDIT)) : resvListHTML() + `<details class="rs-add"><summary class="act pri">+ ${T2("Add a booking","Agregar reservación")}</summary>${resvFormHTML(null)}</details>`);
+  content.innerHTML = `<h2 class="view-h">${T2("My trip","Mi viaje")}</h2><p class="view-sub">${T2("Hotel cards for taxis, your bookings, the weather and what to wear, and the group's expenses. Everything is saved on this phone and works offline.","Tarjetas del hotel para el taxi, sus reservaciones, el clima y qué ponerse, y los gastos del grupo. Todo se guarda en este celular y funciona sin internet.")}</p>
+    ${tripSec("taxi","🚕",T2("Hotel cards for taxis","Tarjetas de hotel para el taxi"),T2("Your hotel's name and address in Japanese, in big letters to show the driver","El nombre y la dirección de su hotel en japonés, en letra grande para enseñar al taxista"), hs.map(taxiCardHTML).join("") || `<p class="gs-note">${T2("No upcoming hotels.","No hay hoteles próximos.")}</p>`)}
+    ${tripSec("resv","🎫",T2("My bookings","Mis reservaciones"),T2("Tickets, restaurants and tours with time, code and QR; they also appear in the plan","Boletos, restaurantes y tours con hora, código y QR; también aparecen en el plan"), resvBody)}
+    ${tripSec("wx","🌤️",T2("Weather and what to wear","Clima y qué ponerse"),T2("Forecast for each day of your route, with clothing tips","Pronóstico para cada día de su ruta, con qué ropa llevar"), wxSectionHTML())}
+    ${tripSec("exp","💴",T2("Group expenses","Gastos del grupo"),T2("Log expenses, split them and see who owes whom","Registren gastos, divídanlos y vean quién le debe a quién"), expSectionHTML())}`;
+  wxFetch(false);
+}
+
+/* ---------- events ---------- */
+content.addEventListener("toggle", e=>{
+  const d = e.target; if(!d.matches || !d.matches(".trip-sec")) return;
+  if(d.open) TRIP_OPEN.add(d.dataset.tripsec); else TRIP_OPEN.delete(d.dataset.tripsec);
+  store.set("jp-trip-open", [...TRIP_OPEN]);
+}, true);
+document.addEventListener("click", e=>{
+  const tx = e.target.closest("[data-taxi]"); if(tx){ e.preventDefault(); e.stopPropagation(); openTaxi(tx.dataset.taxi); return; }
+  const im = e.target.closest("[data-rimg]"); if(im){ e.preventDefault(); e.stopPropagation(); const r = RESV.find(x=>x.id===im.dataset.rimg); if(r && r.img) ovlOpen(`<p class="tb-name">${esc(r.t)}</p>${r.code?`<p class="tb-addr">${esc(r.code)}</p>`:""}<img class="rs-img" src="${r.img}" alt="">`, true); return; }
+  if(state.view !== "trip") return;
+  const b = e.target.closest("button,[data-copy]"); if(!b) return;
+  const ds = b.dataset;
+  if(ds.taxiedit){ const f = content.querySelector(`form[data-f="taxi"][data-h="${ds.taxiedit}"]`); if(f){ f.hidden = !f.hidden; if(!f.hidden) f.querySelector("input").focus(); } return; }
+  if(ds.taxireset){ delete TAXI_EDIT[ds.taxireset]; store.set("jp-taxi", TAXI_EDIT); renderTrip(); return; }
+  if(ds.copy){ try{ navigator.clipboard.writeText(ds.copy); toast(T2("Copied","Copiado")); }catch(err){} return; }
+  if(ds.redit){ RESV_EDIT = ds.redit; renderTrip(); return; }
+  if(ds.rcancel){ RESV_EDIT = null; renderTrip(); return; }
+  if(ds.rdel){ if(confirmDel()){ RESV = RESV.filter(r=>r.id!==ds.rdel); saveResv(); renderTrip(); } return; }
+  if(ds.wxnow){ wxFetch(true); toast(T2("Updating…","Actualizando…")); return; }
+  if(ds.xdel){ EXP.items = EXP.items.filter(x=>x.id!==ds.xdel); EXP.gone = [...new Set([...(EXP.gone||[]), ds.xdel])]; saveExp(); renderTrip(); return; }
+  if(ds.xreset){ if(confirmDel()){ EXP.gone = [...new Set([...(EXP.gone||[]), ...EXP.items.map(x=>x.id)])]; EXP.items = []; saveExp(); renderTrip(); } return; }
+  if(ds.xshare){
+    const url = location.origin + location.pathname + "#import=" + expEncode();
+    const text = T2("Japan 2026 group expenses: open this link to combine them on your phone.","Gastos del viaje a Japón: abre esta liga para juntarlos en tu celular.");
+    if(navigator.share) navigator.share({title:"Japón 2026", text, url}).catch(()=>{});
+    else { try{ navigator.clipboard.writeText(text+" "+url); toast(T2("Link copied","Liga copiada")); }catch(err){} }
+    return;
+  }
+}, true);
+let _delArm = 0;
+function confirmDel(){ if(Date.now() - _delArm < 4000){ _delArm = 0; return true; } _delArm = Date.now(); toast(T2("Tap again to confirm","Toca otra vez para confirmar")); return false; }
+content.addEventListener("submit", async e=>{
+  const f = e.target.closest("form[data-f]"); if(!f) return;
+  e.preventDefault();
+  const fd = new FormData(f), kind = f.dataset.f;
+  if(kind === "taxi"){ TAXI_EDIT[f.dataset.h] = {name:(fd.get("name")||"").trim(), addr:(fd.get("addr")||"").trim(), tel:(fd.get("tel")||"").trim()}; store.set("jp-taxi", TAXI_EDIT); renderTrip(); toast(T2("Saved","Guardado")); return; }
+  if(kind === "resv"){
+    const id = f.dataset.id || uid();
+    const old = RESV.find(r=>r.id===id) || {};
+    const r = {id, t:(fd.get("t")||"").trim(), d:fd.get("d"), tm:fd.get("tm")||"", pl:(fd.get("pl")||"").trim(), code:(fd.get("code")||"").trim(), url:(fd.get("url")||"").trim(), note:(fd.get("note")||"").trim(), img:old.img||null};
+    const file = fd.get("img"); if(file && file.size){ const data = await shrinkImage(file); if(data) r.img = data; }
+    RESV = RESV.filter(x=>x.id!==id).concat(r);
+    if(!saveResv()){ r.img = old.img || null; saveResv(); }
+    RESV_EDIT = null; renderTrip(); toast(T2("Booking saved","Reservación guardada")); return;
+  }
+  if(kind === "exp"){
+    const amt = Math.round(parseFloat(fd.get("amt"))); const split = fd.getAll("s").map(Number);
+    if(!(amt > 0) || !split.length){ toast(T2("Add an amount and at least one person","Pon un monto y al menos una persona")); return; }
+    EXP.items.push({id:uid(), d:fd.get("d"), desc:(fd.get("desc")||"").trim(), amt, by:+fd.get("by"), split, cat:fd.get("cat")});
+    saveExp(); renderTrip(); toast(T2("Expense added","Gasto agregado")); return;
+  }
+  if(kind === "ximp"){
+    const raw = (fd.get("code")||"").trim(), code = raw.includes("#import=") ? raw.split("#import=")[1] : raw;
+    if(!code){ return; }
+    const ok = expImport(code.trim()); if(ok) renderTrip();
+    toast(ok ? T2("Expenses combined","Gastos combinados") : T2("That code didn't work","Ese código no funcionó")); return;
+  }
+  if(kind === "ppl"){
+    EXP.people = EXP.people.map((p,i)=>((fd.get("p"+i)||"").trim() || p));
+    EXP.rate = fd.get("rate") || ""; saveExp(); renderTrip(); toast(T2("Saved","Guardado")); return;
+  }
+});
+function checkImport(){
+  const h = location.hash || "";
+  if(!h.startsWith("#import=")) return false;
+  const ok = expImport(h.slice(8));
+  try{ history.replaceState(null, "", "#trip"); }catch(e){}
+  TRIP_OPEN.add("exp");
+  setView("trip", true);
+  toast(ok ? T2("Expenses combined","Gastos combinados") : T2("That link didn't work","Esa liga no funcionó"));
+  return true;
+}
+addEventListener("hashchange", checkImport);
+addEventListener("online", ()=>wxFetch(false));
+
 /* ---------- boot ---------- */
 function renderLede(){
   if(!document.getElementById("lede")) return;
@@ -6020,11 +6427,13 @@ function renderLede(){
 }
 function renderAll(refit){ renderZones(); renderFilters(); document.getElementById("filters").hidden = state.view!=="guide" || (state.zone!=="all" && ZTAB==="info"); renderContent(); renderMap(refit); }
 renderLede();
-{ const h = (location.hash||"").slice(1).toLowerCase(); if(["plan","near","mine","tips"].includes(h)) state.view = h; }
+{ const h = (location.hash||"").slice(1).toLowerCase(); if(["plan","near","mine","tips","trip"].includes(h)) state.view = h; }
 applyStatic(); syncNav(); syncMapVis();
 initMap();
 initSiteMap();
 renderAll(true);
 initSite();
+if((location.hash||"").startsWith("#import=")) checkImport();
+wxFetch(false);
 if(map) setTimeout(()=>{ map.invalidateSize(); },60);
 </script>
