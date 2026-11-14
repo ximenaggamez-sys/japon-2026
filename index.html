@@ -990,7 +990,7 @@ body{margin:0;padding-bottom:calc(var(--bnav-h) + env(safe-area-inset-bottom,0px
 .note.hotelnote svg,.note.hotelnote b{color:var(--hotel)}
 .sec-h{display:flex;align-items:center;gap:9px;margin:22px 0 8px;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
 /* bottom nav (phones) */
-.bottomnav{position:fixed;left:0;right:0;bottom:0;z-index:1500;display:grid;grid-template-columns:repeat(6,1fr);background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--rule);padding-bottom:env(safe-area-inset-bottom,0px)}
+.bottomnav{position:fixed;left:0;right:0;bottom:0;z-index:1500;display:grid;grid-template-columns:repeat(5,1fr);background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--rule);padding-bottom:env(safe-area-inset-bottom,0px)}
 .bottomnav a{display:grid;justify-items:center;gap:2px;padding:7px 2px 6px;text-decoration:none;color:var(--muted);font-size:10.5px;font-weight:700;white-space:nowrap;min-width:0}
 .bottomnav a svg{width:22px;height:22px}
 .bottomnav a[aria-current="page"]{color:var(--stamp)}
@@ -1374,6 +1374,31 @@ html.ovl-on{overflow:hidden}
 .taxi-big .tb-name,.taxi-big .tb-addr,.taxi-big .tb-say{font-family:"Hiragino Sans","Yu Gothic","Noto Sans JP",var(--body)}
 .ovl .tb-name{padding-right:34px}
 .rs-img{display:block;max-width:100%;max-height:70dvh;margin:8px auto 0;border-radius:8px}
+.trip-jump{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 4px}
+.trip-sec,#tips-h{scroll-margin-top:72px}
+.trip-tips-h{margin-top:26px}
+.wx-today{display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:start;background:var(--tint);border-radius:12px;padding:10px 12px;margin:6px 0 4px;font-size:14px;line-height:1.45}
+.wx-today .wx-b small{display:block}
+.tip-grpd{margin:8px 0}
+.tip-grpd > summary{display:grid;grid-template-columns:34px minmax(0,1fr) auto 16px;gap:10px;align-items:center;padding:12px 14px;cursor:pointer;list-style:none;border:1px solid var(--rule);border-radius:14px;background:var(--surface);font-weight:800;font-size:16px}
+.tip-grpd > summary::-webkit-details-marker{display:none}
+.tip-grpd > summary::after{content:"▾";color:var(--muted);transition:transform .15s}
+.tip-grpd[open] > summary::after{transform:rotate(180deg)}
+.tip-grpd > summary .ti{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--tint);font-size:18px}
+.tip-grpd > summary small{color:var(--muted);font-weight:700;font-size:12px;background:var(--tint);border-radius:999px;padding:2px 8px}
+.tip-grpd .new{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--stamp);color:var(--on-stamp);border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:2px}
+.tip-grp-b{margin:6px 0 2px 16px;padding-left:10px;border-left:2px solid var(--rule)}
+.tip-grp-b > .buy-leg{margin-top:4px}
+.tip-it > summary{flex-wrap:wrap}
+.ttags{flex-basis:100%;display:flex;flex-wrap:wrap;gap:4px;padding:5px 0 0 22px;font-weight:700}
+.ttag{display:inline-flex;align-items:center;font-size:11.5px;font-weight:700;line-height:1.2;padding:3px 8px;border-radius:999px;background:var(--tint);color:var(--ink)}
+.tb .ttag{vertical-align:1px}
+.ttag.t-jr{background:color-mix(in srgb,var(--accent) 14%,var(--surface));color:var(--accent)}
+.ttag.t-ok{background:color-mix(in srgb,var(--low) 15%,var(--surface));color:var(--low)}
+.ttag.t-warn{background:var(--gold-bg);color:var(--gold-ink)}
+.ttag.t-bad{background:color-mix(in srgb,var(--stamp) 13%,var(--surface));color:var(--stamp)}
+.ttag.t-plan{background:var(--accent);color:var(--paper)}
+.ttag.t-pv,.ttag.t-info{background:var(--tint);color:var(--ink)}
 
 </style>
 
@@ -1387,7 +1412,6 @@ html.ovl-on{overflow:hidden}
       <a href="#plan" data-nav="plan" data-t="Day by day">Day by day</a>
       <a href="#near" data-nav="near" data-t="Near me">Near me</a>
       <a href="#mine" data-nav="mine" data-t="My places">My places</a>
-      <a href="#tips" data-nav="tips" data-t="Tips">Tips</a>
       <a href="#trip" data-nav="trip" data-t="My trip">My trip</a>
       <a href="train.html" data-t="Trains">Trains</a>
     </nav>
@@ -1444,7 +1468,6 @@ html.ovl-on{overflow:hidden}
   <a href="#guide" data-nav="guide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3 3 6v15l6-3 6 3 6-3V3l-6 3-6-3z"/><path d="M9 3v15M15 6v15"/></svg><span data-t="Guide">Guide</span></a>
   <a href="#plan" data-nav="plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M7 14h4M7 17h7"/></svg><span data-t="Plan">Plan</span></a>
   <a href="#mine" data-nav="mine"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.2L6 21z"/></svg><span data-t="My places">My places</span></a>
-  <a href="#tips" data-nav="tips"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg><span data-t="Tips">Tips</span></a>
   <a href="#trip" data-nav="trip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M9 11v5M15 11v5"/></svg><span data-t="My trip">My trip</span></a>
   <a href="train.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="13" rx="3"/><path d="M5 10h14M8 20l-2 2M16 20l2 2M9 13h.01M15 13h.01"/></svg><span data-t="Trains">Trains</span></a>
 </nav>
@@ -4895,7 +4918,8 @@ function syncNav(){
   document.querySelectorAll("[data-nav]").forEach(a=>{ if(a.dataset.nav===state.view && !a.classList.contains("brand")) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
 }
 function setView(v, fromHash){
-  if(!["guide","plan","near","mine","tips","trip"].includes(v)) v = "guide";
+  if(v==="tips"){ v = "trip"; window._toTips = true; }
+  if(!["guide","plan","near","mine","trip"].includes(v)) v = "guide";
   state.view = v; syncNav(); closePanel();
   if(!fromHash){ try{ history.replaceState(null,"","#"+(v==="guide"?state.zone:v)); }catch(e){} }
   if(v==="near" && !ME) locate(true);
@@ -6040,6 +6064,350 @@ const TIPS = [
   en:{h:"Rush hour", b:`<ul><li>From 7:30 to 9:30 and 17:30 to 19:30 the subway is packed: avoid moving with luggage then.</li><li>At rush hour there are women-only cars, marked in pink on the platform.</li></ul>`}},
  {es:{h:"Etiqueta", b:`<ul><li>No se hacen llamadas y se habla bajito; la mochila va al frente o arriba.</li><li>Formen fila a los lados de la puerta y dejen salir primero.</li><li>En escaleras eléctricas: en Tokio te paras a la izquierda, en Osaka a la derecha.</li><li>Los asientos de prioridad son para mayores, embarazadas y personas con discapacidad.</li></ul>`},
   en:{h:"Etiquette", b:`<ul><li>No phone calls, and keep your voice low; backpacks go on your front or on the rack.</li><li>Line up at the sides of the door and let people off first.</li><li>On escalators, stand on the left in Tokyo and on the right in Osaka.</li><li>Priority seats are for older people, pregnant women and people with disabilities.</li></ul>`}}
+ ]},
+{g:"trips", id:"trip-how", ic:"🎫", isNew:1,
+ es:{t:"Antes de salir: JR, trenes privados y boletos extra", s:"Qué significa cada etiqueta y cuándo hay que pagar algo aparte"},
+ en:{t:"Before you go: JR, private railways and extra tickets", s:"What each label means and when you pay something extra"},
+ items:[
+ {es:{h:"Cómo leer las etiquetas", b:`<ul class="kit">
+<li>{{tag:jr}} Tren de Japan Railways. Del 22 al 26 nov lo cubre su pase Kansai-Hiroshima (Kansai, Okayama e Hiroshima).</li>
+<li>{{tag:pv:Tobu, Kintetsu…}} Compañía de tren privada. Ningún pase de JR la cubre: se paga con Suica o con un pase propio.</li>
+<li>{{tag:bus}} {{tag:ferry}} Bus o barco. Casi siempre se pagan aparte, aunque tengan pase.</li>
+<li>{{tag:suica}} Con saldo en la Suica basta; no hay que comprar nada antes.</li>
+<li>{{tag:nosuica}} En esa zona la Suica puede no funcionar: compren el boleto en la máquina o la ventanilla.</li>
+<li>{{tag:pass}} {{tag:nopass}} Si su pase Kansai-Hiroshima (22–26 nov) cubre el viaje o no.</li>
+<li>{{tag:ownpass:pase local|local pass}} Hay un pase de la zona que sale más barato que pagar cada tramo.</li>
+<li>{{tag:extra}} Además del pasaje hay que pagar un boleto aparte: asiento reservado, tren limited express, teleférico, ferry o un impuesto local.</li>
+<li>{{tag:res}} Sin reserva se pueden quedar sin lugar: compren en línea antes.</li>
+<li>{{tag:entry}} {{tag:free}} Si los lugares principales cobran entrada o no.</li>
+<li>{{tag:plan:2026-11-14}} Ya está en su plan ese día. {{tag:fit:día libre|free day}} Un día de su plan donde encaja como alternativa.</li>
+</ul>`},
+  en:{h:"How to read the labels", b:`<ul class="kit">
+<li>{{tag:jr}} A Japan Railways train. From Nov 22 to 26 your Kansai-Hiroshima Pass covers it (Kansai, Okayama and Hiroshima).</li>
+<li>{{tag:pv:Tobu, Kintetsu…}} A private railway company. No JR pass covers it: pay with Suica or with its own pass.</li>
+<li>{{tag:bus}} {{tag:ferry}} Bus or boat. Almost always paid separately, even with a pass.</li>
+<li>{{tag:suica}} Money on your Suica is all you need; nothing to buy ahead.</li>
+<li>{{tag:nosuica}} Suica may not work in that area: buy a ticket at the machine or the ticket office.</li>
+<li>{{tag:pass}} {{tag:nopass}} Whether your Kansai-Hiroshima Pass (Nov 22–26) covers the trip.</li>
+<li>{{tag:ownpass:pase local|local pass}} A local pass that costs less than paying each leg.</li>
+<li>{{tag:extra}} On top of the fare you pay for a separate ticket: a reserved seat, a limited express, a ropeway, a ferry or a local tax.</li>
+<li>{{tag:res}} Without booking you may not get a seat: buy online ahead.</li>
+<li>{{tag:entry}} {{tag:free}} Whether the main sights charge admission.</li>
+<li>{{tag:plan:2026-11-14}} Already in your plan that day. {{tag:fit:día libre|free day}} A day in your plan where it fits as an alternative.</li>
+</ul>`}},
+ {es:{h:"JR o tren privado: por qué importa", b:`<ul>
+<li>En Japón hay muchas compañías de tren. En Google Maps, el nombre de la línea lo dice: si empieza con <b>JR</b> es Japan Railways; si dice Tobu, Odakyu, Keio, Kintetsu, Hankyu, Keihan, Nankai, Eizan o Fujikyu, es privada.</li>
+<li>El pase Kansai-Hiroshima (22–26 nov) cubre trenes JR: el Shinkansen Shin-Osaka → Hiroshima, trenes locales y rápidos de JR y el ferry JR a Miyajima. No cubre el metro de Osaka, Kintetsu, Hankyu, Keihan ni Nankai.</li>
+<li>El pase de metro de 72 horas de Tokio no cubre JR ni trenes privados.</li>
+<li>La Suica sirve para el pasaje normal en casi todos los trenes, JR y privados, salvo en algunas zonas rurales como Hida.</li>
+</ul>`},
+  en:{h:"JR or a private railway: why it matters", b:`<ul>
+<li>Japan has many train companies. In Google Maps the line name tells you: if it starts with <b>JR</b> it's Japan Railways; if it says Tobu, Odakyu, Keio, Kintetsu, Hankyu, Keihan, Nankai, Eizan or Fujikyu, it's private.</li>
+<li>The Kansai-Hiroshima Pass (Nov 22–26) covers JR trains: the Shinkansen Shin-Osaka → Hiroshima, JR local and rapid trains and the JR ferry to Miyajima. It doesn't cover the Osaka subway, Kintetsu, Hankyu, Keihan or Nankai.</li>
+<li>Tokyo's 72-hour subway pass doesn't cover JR or private railways.</li>
+<li>Suica pays the regular fare on almost every train, JR or private, except in some rural areas like Hida.</li>
+</ul>`}},
+ {es:{h:"Cuándo hay que comprar un boleto extra", b:`<ul>
+<li><b>Shinkansen y limited express</b> (特急, <i>tokkyu</i>): pasaje + cargo de tren rápido. La Suica sola no alcanza; compren el boleto en la máquina, la ventanilla o la app.</li>
+<li><b>Trenes con todos los asientos reservados</b>: SPACIA X (Nikko), Romancecar (Hakone), Fuji Excursion (Fuji), Aoniyoshi y limited express de Kintetsu (Nara), limited express Koya (Koyasan). Compren el asiento antes de subir.</li>
+<li><b>Buses de carretera</b>, como Takayama → Shirakawa-go: reserva obligatoria.</li>
+<li><b>Ferries, teleféricos y funiculares</b>: casi siempre aparte, aunque tengan pase.</li>
+<li><b>Impuestos locales</b>: Miyajima cobra ¥100 por persona al llegar.</li>
+</ul>`},
+  en:{h:"When you need an extra ticket", b:`<ul>
+<li><b>Shinkansen and limited express</b> (特急, <i>tokkyu</i>): fare + fast-train charge. Suica alone isn't enough; buy at the machine, the ticket office or the app.</li>
+<li><b>All-reserved trains</b>: SPACIA X (Nikko), Romancecar (Hakone), Fuji Excursion (Fuji), Aoniyoshi and Kintetsu limited expresses (Nara), Koya limited express (Koyasan). Buy the seat before boarding.</li>
+<li><b>Highway buses</b>, like Takayama → Shirakawa-go: booking required.</li>
+<li><b>Ferries, ropeways and cable cars</b>: almost always extra, even with a pass.</li>
+<li><b>Local taxes</b>: Miyajima charges ¥100 per person on arrival.</li>
+</ul>`}},
+ {es:{h:"Entradas: cuándo reservar y cómo pagar", b:`<ul>
+<li>Con horario reservado en línea: Museo Chichu (Naoshima), teamLab, Shibuya Sky.</li>
+<li>Los santuarios sintoístas (<i>jinja</i>) casi siempre son gratis; los templos budistas (<i>tera</i>, <i>ji</i>) suelen cobrar ¥300–1,000 en la puerta.</li>
+<li>Muchos templos solo aceptan efectivo: lleven billetes y monedas.</li>
+<li>Castillos y jardines cobran; el castillo de Himeji cuesta ¥2,500 para visitantes desde marzo de 2026.</li>
+</ul>`},
+  en:{h:"Admission: when to book and how to pay", b:`<ul>
+<li>Timed tickets booked online: Chichu Art Museum (Naoshima), teamLab, Shibuya Sky.</li>
+<li>Shinto shrines (<i>jinja</i>) are almost always free; Buddhist temples (<i>tera</i>, <i>ji</i>) usually charge ¥300–1,000 at the gate.</li>
+<li>Many temples take cash only: carry notes and coins.</li>
+<li>Castles and gardens charge; Himeji Castle costs ¥2,500 for visitors since March 2026.</li>
+</ul>`}}
+ ]},
+{g:"trips", id:"trip-tokyo", ic:"🗼", isNew:1,
+ es:{t:"Day trips desde Tokio", s:"Nikko, Hakone, Kamakura, Fuji, Kawagoe, Yokohama y Takao"},
+ en:{t:"Day trips from Tokyo", s:"Nikko, Hakone, Kamakura, Fuji, Kawagoe, Yokohama and Takao"},
+ items:[
+ {tags:"pv:Tobu;extra;entry;plan:2026-11-14",
+  es:{h:"Nikko · ≈2 h", b:`<ul>
+<li><b>Cómo llegar:</b> SPACIA X desde Asakusa, ≈1 h 50 min. Allá, buses Tobu a los santuarios, la cascada Kegon y el lago Chuzenji.</li>
+<li><b>Boletos:</b> SPACIA X ¥3,340 por trayecto, con asiento reservado. O el NIKKO PASS ¥3,000 (tren local Tobu + buses); con ese pase el SPACIA X se paga aparte.</li>
+<li><b>Entradas:</b> Toshogu, Rinno-ji y Taiyuin cobran por separado, igual que el elevador de la cascada Kegon. El puente Shinkyo se ve gratis desde la calle.</li>
+<li><b>Tip:</b> lleguen a Toshogu a las 8:00, antes que los tours. En Chuzenji hace frío.</li>
+</ul>`},
+  en:{h:"Nikko · ≈2 h", b:`<ul>
+<li><b>Getting there:</b> SPACIA X from Asakusa, ≈1 h 50 min. There, Tobu buses to the shrines, Kegon Falls and Lake Chuzenji.</li>
+<li><b>Tickets:</b> SPACIA X ¥3,340 each way, reserved seat. Or the NIKKO PASS ¥3,000 (Tobu local train + buses); with it, SPACIA X is extra.</li>
+<li><b>Admission:</b> Toshogu, Rinno-ji and Taiyuin charge separately, as does the Kegon Falls elevator. Shinkyo Bridge is free to see from the street.</li>
+<li><b>Tip:</b> get to Toshogu at 8:00, ahead of the tours. Chuzenji is cold.</li>
+</ul>`}},
+ {tags:"pv:Odakyu;extra;ownpass:Hakone Freepass|Hakone Freepass;entry;plan:2026-11-16",
+  es:{h:"Hakone · ≈1 h 30 min", b:`<ul>
+<li><b>Cómo llegar:</b> Romancecar desde Shinjuku a Hakone-Yumoto, ≈1 h 25 min; luego el circuito: tren de montaña, funicular, teleférico y barco pirata.</li>
+<li><b>Boletos:</b> Hakone Freepass ¥7,100 (tren de ida y vuelta + todo el circuito) + Romancecar ¥1,200 por el asiento reservado.</li>
+<li><b>Entradas:</b> el museo Open-Air y los demás museos cobran; con el Freepass hay descuento.</li>
+<li><b>Tip:</b> el teleférico se detiene con viento fuerte o gases volcánicos; revisen el estado esa mañana.</li>
+</ul>`},
+  en:{h:"Hakone · ≈1 h 30 min", b:`<ul>
+<li><b>Getting there:</b> Romancecar from Shinjuku to Hakone-Yumoto, ≈1 h 25 min; then the loop: mountain train, cable car, ropeway and pirate ship.</li>
+<li><b>Tickets:</b> Hakone Freepass ¥7,100 (round-trip train + the whole loop) + Romancecar ¥1,200 for the reserved seat.</li>
+<li><b>Admission:</b> the Open-Air Museum and other museums charge; the Freepass gives a discount.</li>
+<li><b>Tip:</b> the ropeway stops in strong wind or volcanic gas; check its status that morning.</li>
+</ul>`}},
+ {tags:"jr;pv:Enoden;suica;entry;fit:2 dic (opcional)|Dec 2 (optional)",
+  es:{h:"Kamakura y Enoshima · ≈1 h", b:`<ul>
+<li><b>Cómo llegar:</b> JR línea Yokosuka desde Tokio o Shinbashi a Kamakura, ≈1 h. Entre Kamakura y Enoshima, el tren Enoden.</li>
+<li><b>Boletos:</b> basta Suica. O el Enoshima-Kamakura Freepass ¥1,640 de Odakyu desde Shinjuku (ida, vuelta y Enoden).</li>
+<li><b>Entradas:</b> Gran Buda ¥300 y Hasedera ¥400; el santuario Tsurugaoka Hachimangu y la isla de Enoshima son gratis.</li>
+<li><b>Tip:</b> entre semana el Enoden va menos lleno; el 2 dic es miércoles.</li>
+</ul>`},
+  en:{h:"Kamakura and Enoshima · ≈1 h", b:`<ul>
+<li><b>Getting there:</b> JR Yokosuka Line from Tokyo or Shinbashi to Kamakura, ≈1 h. Between Kamakura and Enoshima, the Enoden train.</li>
+<li><b>Tickets:</b> Suica is enough. Or Odakyu's Enoshima-Kamakura Freepass ¥1,640 from Shinjuku (there, back and the Enoden).</li>
+<li><b>Admission:</b> Great Buddha ¥300 and Hasedera ¥400; Tsurugaoka Hachimangu shrine and Enoshima island are free.</li>
+<li><b>Tip:</b> the Enoden is less crowded on weekdays; Dec 2 is a Wednesday.</li>
+</ul>`}},
+ {tags:"jr;pv:Fujikyu;extra;res;free;fit:3 dic|Dec 3",
+  es:{h:"Monte Fuji (Kawaguchiko) · ≈2 h", b:`<ul>
+<li><b>Cómo llegar:</b> tren Fuji Excursion directo desde Shinjuku, ≈2 h; o bus de carretera desde Busta Shinjuku, ≈2 h.</li>
+<li><b>Boletos:</b> el Fuji Excursion tiene todos los asientos reservados (JR + Fujikyu): compren en línea o en una máquina JR. El bus es más barato y también se reserva en línea.</li>
+<li><b>Entradas:</b> la pagoda Chureito y el lago son gratis; el teleférico Kachi Kachi cobra.</li>
+<li><b>Tip:</b> el Fuji se ve mejor temprano; en la tarde suele nublarse. Revisen el pronóstico de nubes antes de comprar.</li>
+</ul>`},
+  en:{h:"Mt Fuji (Kawaguchiko) · ≈2 h", b:`<ul>
+<li><b>Getting there:</b> the Fuji Excursion train direct from Shinjuku, ≈2 h; or a highway bus from Busta Shinjuku, ≈2 h.</li>
+<li><b>Tickets:</b> the Fuji Excursion is all reserved seats (JR + Fujikyu): buy online or at a JR machine. The bus is cheaper and is also booked online.</li>
+<li><b>Admission:</b> Chureito Pagoda and the lake are free; the Kachi Kachi Ropeway charges.</li>
+<li><b>Tip:</b> Fuji is clearest early; afternoons often cloud over. Check the cloud forecast before buying.</li>
+</ul>`}},
+ {tags:"pv:Tobu;suica;free;fit:15 nov, 3 o 4 dic|Nov 15, Dec 3 or 4",
+  es:{h:"Kawagoe · ≈30 min", b:`<ul>
+<li><b>Cómo llegar:</b> línea Tobu Tojo desde Ikebukuro a Kawagoe, ≈30 min; luego a pie o en bus a la calle de las bodegas (Kurazukuri).</li>
+<li><b>Boletos:</b> basta Suica, ≈¥500 por trayecto.</li>
+<li><b>Entradas:</b> las calles, la torre Toki no Kane y el callejón de dulces Kashiya Yokocho son gratis; el templo Kita-in cobra.</li>
+<li><b>Tip:</b> vayan con hambre: camote (<i>imo</i>) en todas sus formas.</li>
+</ul>`},
+  en:{h:"Kawagoe · ≈30 min", b:`<ul>
+<li><b>Getting there:</b> Tobu Tojo Line from Ikebukuro to Kawagoe, ≈30 min; then walk or bus to the warehouse street (Kurazukuri).</li>
+<li><b>Tickets:</b> Suica is enough, ≈¥500 each way.</li>
+<li><b>Admission:</b> the streets, the Toki no Kane tower and the Kashiya Yokocho candy alley are free; Kita-in temple charges.</li>
+<li><b>Tip:</b> go hungry: sweet potato (<i>imo</i>) in every form.</li>
+</ul>`}},
+ {tags:"jr;pv:Tokyu;suica;free;fit:4 dic|Dec 4",
+  es:{h:"Yokohama · ≈35 min", b:`<ul>
+<li><b>Cómo llegar:</b> línea Tokyu Toyoko desde Shibuya, directo a Minatomirai y Motomachi-Chukagai, ≈35 min; o JR.</li>
+<li><b>Boletos:</b> basta Suica.</li>
+<li><b>Entradas:</b> el Barrio Chino, Red Brick y el malecón son gratis; el Museo del Cup Noodles cobra ¥500, más ¥500 por hacer su propio vaso.</li>
+<li><b>Tip:</b> de noche, la vista de Minatomirai desde el muelle Osanbashi.</li>
+</ul>`},
+  en:{h:"Yokohama · ≈35 min", b:`<ul>
+<li><b>Getting there:</b> Tokyu Toyoko Line from Shibuya, direct to Minatomirai and Motomachi-Chukagai, ≈35 min; or JR.</li>
+<li><b>Tickets:</b> Suica is enough.</li>
+<li><b>Admission:</b> Chinatown, Red Brick and the waterfront are free; the Cup Noodles Museum charges ¥500, plus ¥500 to make your own cup.</li>
+<li><b>Tip:</b> at night, the Minatomirai view from Osanbashi Pier.</li>
+</ul>`}},
+ {tags:"pv:Keio;suica;free;fit:15 nov|Nov 15",
+  es:{h:"Monte Takao · ≈1 h", b:`<ul>
+<li><b>Cómo llegar:</b> línea Keio desde Shinjuku a Takaosanguchi, ≈50 min.</li>
+<li><b>Boletos:</b> basta Suica, ≈¥500. El funicular o la telesilla se pagan aparte (≈¥500 por trayecto), o suban a pie, ≈1 h 30 min.</li>
+<li><b>Entradas:</b> el templo Yakuo-in y los senderos son gratis.</li>
+<li><b>Tip:</b> mediados de noviembre es el pico de hojas rojas y el 15 nov es domingo: lleguen antes de las 8:30.</li>
+</ul>`},
+  en:{h:"Mt Takao · ≈1 h", b:`<ul>
+<li><b>Getting there:</b> Keio Line from Shinjuku to Takaosanguchi, ≈50 min.</li>
+<li><b>Tickets:</b> Suica is enough, ≈¥500. The cable car or chairlift is extra (≈¥500 each way), or hike up, ≈1 h 30 min.</li>
+<li><b>Admission:</b> Yakuo-in temple and the trails are free.</li>
+<li><b>Tip:</b> mid-November is peak autumn color and Nov 15 is a Sunday: arrive before 8:30.</li>
+</ul>`}}
+ ]},
+{g:"trips", id:"trip-kansai", ic:"⛩️", isNew:1,
+ es:{t:"Day trips desde Kioto y Osaka", s:"Nara, Uji, Kurama, Kobe, Himeji, Hiroshima, Naoshima, Koyasan y Minoo"},
+ en:{t:"Day trips from Kyoto and Osaka", s:"Nara, Uji, Kurama, Kobe, Himeji, Hiroshima, Naoshima, Koyasan and Minoo"},
+ items:[
+ {tags:"pv:Kintetsu;jr;suica;extra;entry;plan:2026-11-20",
+  es:{h:"Nara · ≈45 min", b:`<ul>
+<li><b>Cómo llegar:</b> Kintetsu desde Kioto a Kintetsu-Nara, ≈45 min, a pasos del parque; o JR línea Nara a JR Nara (¥720) y 20 min a pie.</li>
+<li><b>Boletos:</b> el express normal de Kintetsu y el JR se pagan con Suica. El limited express y el Aoniyoshi llevan boleto de asiento extra (en su plan: ¥1,280 de ida y Aoniyoshi ¥1,490 de regreso). El 20 nov el pase aún no empieza.</li>
+<li><b>Entradas:</b> el parque y los venados son gratis (galletas ¥200); Todai-ji ¥800; el interior de Kasuga Taisha cobra.</li>
+<li><b>Tip:</b> el Aoniyoshi tiene pocas salidas al día: compren el asiento con anticipación.</li>
+</ul>`},
+  en:{h:"Nara · ≈45 min", b:`<ul>
+<li><b>Getting there:</b> Kintetsu from Kyoto to Kintetsu-Nara, ≈45 min, steps from the park; or the JR Nara Line to JR Nara (¥720) and a 20 min walk.</li>
+<li><b>Tickets:</b> the regular Kintetsu express and JR take Suica. The limited express and Aoniyoshi need an extra seat ticket (your plan: ¥1,280 there, Aoniyoshi ¥1,490 back). The pass hasn't started on Nov 20.</li>
+<li><b>Admission:</b> the park and deer are free (crackers ¥200); Todai-ji ¥800; Kasuga Taisha's inner area charges.</li>
+<li><b>Tip:</b> the Aoniyoshi runs only a few times a day: book the seat ahead.</li>
+</ul>`}},
+ {tags:"jr;suica;pass;entry;fit:22 o 24 nov|Nov 22 or 24",
+  es:{h:"Uji · ≈20 min desde Kioto", b:`<ul>
+<li><b>Cómo llegar:</b> JR línea Nara desde Kioto a Uji, ≈20 min; desde Osaka, ≈50 min cambiando en Kioto.</li>
+<li><b>Boletos:</b> basta Suica (¥240 desde Kioto); del 22 al 26 nov lo cubre el pase.</li>
+<li><b>Entradas:</b> Byodo-in ¥700; entrar al Pabellón del Fénix cuesta aparte, con turnos que se agotan en la mañana.</li>
+<li><b>Tip:</b> matcha y postres en Nakamura Tokichi; hay fila, lleguen temprano.</li>
+</ul>`},
+  en:{h:"Uji · ≈20 min from Kyoto", b:`<ul>
+<li><b>Getting there:</b> JR Nara Line from Kyoto to Uji, ≈20 min; from Osaka, ≈50 min changing in Kyoto.</li>
+<li><b>Tickets:</b> Suica is enough (¥240 from Kyoto); from Nov 22 to 26 the pass covers it.</li>
+<li><b>Admission:</b> Byodo-in ¥700; going inside the Phoenix Hall is extra, with time slots that sell out in the morning.</li>
+<li><b>Tip:</b> matcha and desserts at Nakamura Tokichi; there's a line, go early.</li>
+</ul>`}},
+ {tags:"pv:Eizan;suica;entry;fit:18 o 19 nov|Nov 18 or 19",
+  es:{h:"Kurama y Kibune · ≈30 min desde Kioto", b:`<ul>
+<li><b>Cómo llegar:</b> línea Keihan a Demachiyanagi y ahí el tren Eizan a Kurama, ≈30 min. De Kurama a Kibune se cruza la montaña a pie, ≈1 h 30 min.</li>
+<li><b>Boletos:</b> basta Suica (≈¥470 el Eizan); el pequeño funicular de Kurama-dera se paga aparte.</li>
+<li><b>Entradas:</b> Kurama-dera ¥500; el santuario Kibune es gratis.</li>
+<li><b>Tip:</b> en otoño, el Eizan ilumina el "túnel de arces" al anochecer; siéntense del lado de la ventana.</li>
+</ul>`},
+  en:{h:"Kurama and Kibune · ≈30 min from Kyoto", b:`<ul>
+<li><b>Getting there:</b> Keihan Line to Demachiyanagi, then the Eizan train to Kurama, ≈30 min. From Kurama to Kibune you hike over the mountain, ≈1 h 30 min.</li>
+<li><b>Tickets:</b> Suica is enough (≈¥470 on the Eizan); Kurama-dera's small cable car is extra.</li>
+<li><b>Admission:</b> Kurama-dera ¥500; Kibune Shrine is free.</li>
+<li><b>Tip:</b> in autumn the Eizan lights up its "maple tunnel" after dusk; sit by a window.</li>
+</ul>`}},
+ {tags:"jr;pass;extra;entry;plan:2026-11-23",
+  es:{h:"Kobe, Arima y el monte Maya · ≈30 min", b:`<ul>
+<li><b>Cómo llegar:</b> JR desde Osaka a Sannomiya, ≈25 min. A Arima, en bus o con el teleférico Rokko-Arima.</li>
+<li><b>Boletos:</b> JR ¥420, gratis con el pase. El teleférico Rokko-Arima, el Maya View Line y los buses de Rokko se pagan aparte (en su plan: Rokko-Arima ¥2,450).</li>
+<li><b>Entradas:</b> los baños públicos Kin no Yu y Gin no Yu de Arima cobran; en el monte Maya pagan el teleférico, la vista es gratis.</li>
+<li><b>Tip:</b> el 23 nov es feriado: Arima se llena, lleguen temprano.</li>
+</ul>`},
+  en:{h:"Kobe, Arima and Mt Maya · ≈30 min", b:`<ul>
+<li><b>Getting there:</b> JR from Osaka to Sannomiya, ≈25 min. To Arima, by bus or the Rokko-Arima Ropeway.</li>
+<li><b>Tickets:</b> JR ¥420, free with the pass. The Rokko-Arima Ropeway, the Maya View Line and Rokko buses are extra (your plan: Rokko-Arima ¥2,450).</li>
+<li><b>Admission:</b> Arima's Kin no Yu and Gin no Yu public baths charge; on Mt Maya you pay the ropeway and the view is free.</li>
+<li><b>Tip:</b> Nov 23 is a public holiday: Arima gets crowded, go early.</li>
+</ul>`}},
+ {tags:"jr;pass;entry;fit:22 o 24 nov|Nov 22 or 24",
+  es:{h:"Himeji · ≈1 h desde Osaka", b:`<ul>
+<li><b>Cómo llegar:</b> JR Special Rapid desde Osaka, ≈1 h; o Shinkansen desde Shin-Osaka, ≈30 min. El castillo queda a 15 min a pie.</li>
+<li><b>Boletos:</b> del 22 al 26 nov el pase cubre los dos, incluido el Shinkansen. Sin pase, JR ¥1,520.</li>
+<li><b>Entradas:</b> castillo de Himeji ¥2,500 para visitantes desde marzo de 2026; el jardín Koko-en cobra aparte.</li>
+<li><b>Tip:</b> se combina con Kobe el mismo día; el castillo cierra temprano, vayan primero ahí.</li>
+</ul>`},
+  en:{h:"Himeji · ≈1 h from Osaka", b:`<ul>
+<li><b>Getting there:</b> JR Special Rapid from Osaka, ≈1 h; or Shinkansen from Shin-Osaka, ≈30 min. The castle is a 15 min walk.</li>
+<li><b>Tickets:</b> from Nov 22 to 26 the pass covers both, Shinkansen included. Without it, JR ¥1,520.</li>
+<li><b>Admission:</b> Himeji Castle ¥2,500 for visitors since March 2026; Koko-en garden charges separately.</li>
+<li><b>Tip:</b> it pairs with Kobe in one day; the castle closes early, so go there first.</li>
+</ul>`}},
+ {tags:"jr;ferry;pass;extra;entry;plan:2026-11-25",
+  es:{h:"Hiroshima y Miyajima · ≈1 h 30 min", b:`<ul>
+<li><b>Cómo llegar:</b> Shinkansen de Shin-Osaka a Hiroshima, ≈1 h 25 min; JR a Miyajimaguchi y ferry JR a la isla.</li>
+<li><b>Boletos:</b> el pase cubre el Shinkansen, el JR y el ferry JR. Aparte: el impuesto de visitante de Miyajima, ¥100 por persona, y el barco directo desde el Parque de la Paz.</li>
+<li><b>Entradas:</b> Museo de la Paz ¥200, santuario Itsukushima ¥300 y teleférico del monte Misen ≈¥2,000 ida y vuelta.</li>
+<li><b>Tip:</b> el torii parece flotar con la marea alta; revisen la tabla de mareas del día.</li>
+</ul>`},
+  en:{h:"Hiroshima and Miyajima · ≈1 h 30 min", b:`<ul>
+<li><b>Getting there:</b> Shinkansen from Shin-Osaka to Hiroshima, ≈1 h 25 min; JR to Miyajimaguchi and the JR ferry to the island.</li>
+<li><b>Tickets:</b> the pass covers the Shinkansen, JR and the JR ferry. Extra: Miyajima's visitor tax, ¥100 per person, and the direct boat from the Peace Park.</li>
+<li><b>Admission:</b> Peace Museum ¥200, Itsukushima Shrine ¥300 and the Mt Misen ropeway ≈¥2,000 round trip.</li>
+<li><b>Tip:</b> the torii seems to float at high tide; check that day's tide table.</li>
+</ul>`}},
+ {tags:"jr;ferry;pass;extra;res;plan:2026-11-26",
+  es:{h:"Naoshima · ≈2 h 30 min", b:`<ul>
+<li><b>Cómo llegar:</b> Shinkansen a Okayama, JR a Uno y ferry a Miyanoura.</li>
+<li><b>Boletos:</b> el pase cubre el Shinkansen; la línea JR a Uno normalmente también. El ferry se paga aparte.</li>
+<li><b>Entradas:</b> Museo Chichu ¥2,500 con horario reservado en línea. Casi todos los museos de la isla cierran los lunes; el 26 nov es jueves.</li>
+<li><b>Tip:</b> en la isla, bus local o bicis eléctricas de renta.</li>
+</ul>`},
+  en:{h:"Naoshima · ≈2 h 30 min", b:`<ul>
+<li><b>Getting there:</b> Shinkansen to Okayama, JR to Uno and the ferry to Miyanoura.</li>
+<li><b>Tickets:</b> the pass covers the Shinkansen and usually the JR line to Uno too. The ferry is extra.</li>
+<li><b>Admission:</b> Chichu Art Museum ¥2,500 with a timed online booking. Almost every museum on the island closes on Mondays; Nov 26 is a Thursday.</li>
+<li><b>Tip:</b> on the island, the local bus or rented e-bikes.</li>
+</ul>`}},
+ {tags:"pv:Nankai;nopass;ownpass:Koyasan World Heritage Ticket|Koyasan World Heritage Ticket;extra;entry;fit:22 o 24 nov|Nov 22 or 24",
+  es:{h:"Koyasan · ≈2 h desde Osaka", b:`<ul>
+<li><b>Cómo llegar:</b> Nankai desde Namba a Gokurakubashi, funicular a Koyasan y bus por el pueblo.</li>
+<li><b>Boletos:</b> el pase no lo cubre. El Koyasan World Heritage Ticket de Nankai incluye tren de ida y vuelta, funicular y buses; el limited express Koya cobra el asiento aparte.</li>
+<li><b>Entradas:</b> el cementerio Okunoin es gratis; Kongobu-ji y otros templos cobran.</li>
+<li><b>Tip:</b> hace varios grados menos que en Osaka; lleven abrigo.</li>
+</ul>`},
+  en:{h:"Koyasan · ≈2 h from Osaka", b:`<ul>
+<li><b>Getting there:</b> Nankai from Namba to Gokurakubashi, cable car up to Koyasan and buses around town.</li>
+<li><b>Tickets:</b> the pass doesn't cover it. Nankai's Koyasan World Heritage Ticket includes the round-trip train, cable car and buses; the Koya limited express charges extra for the seat.</li>
+<li><b>Admission:</b> Okunoin cemetery is free; Kongobu-ji and other temples charge.</li>
+<li><b>Tip:</b> it's several degrees colder than Osaka; bring a coat.</li>
+</ul>`}},
+ {tags:"pv:Hankyu;suica;entry;fit:24 o 26 nov|Nov 24 or 26",
+  es:{h:"Minoo y Katsuo-ji · medio día", b:`<ul>
+<li><b>Cómo llegar:</b> Hankyu desde Umeda a Minoo, ≈30 min; sendero de 2.7 km a la cascada.</li>
+<li><b>Boletos:</b> basta Suica.</li>
+<li><b>Entradas:</b> la cascada es gratis; Katsuo-ji, el templo de los daruma, cobra y se llega en bus o taxi.</li>
+<li><b>Tip:</b> prueben el <i>momiji tempura</i> (hojas de arce fritas) en el sendero.</li>
+</ul>`},
+  en:{h:"Minoo and Katsuo-ji · half day", b:`<ul>
+<li><b>Getting there:</b> Hankyu from Umeda to Minoo, ≈30 min; a 2.7 km trail to the waterfall.</li>
+<li><b>Tickets:</b> Suica is enough.</li>
+<li><b>Admission:</b> the waterfall is free; Katsuo-ji, the daruma temple, charges and is reached by bus or taxi.</li>
+<li><b>Tip:</b> try <i>momiji tempura</i> (fried maple leaves) on the trail.</li>
+</ul>`}}
+ ]},
+{g:"trips", id:"trip-takayama", ic:"🏮", isNew:1,
+ es:{t:"Day trips desde Takayama", s:"Shirakawa-go, Hida-Furukawa, Gero y los Alpes de Okuhida"},
+ en:{t:"Day trips from Takayama", s:"Shirakawa-go, Hida-Furukawa, Gero and the Okuhida Alps"},
+ items:[
+ {tags:"bus;extra;res;entry;plan:2026-11-28",
+  es:{h:"Shirakawa-go · ≈50 min", b:`<ul>
+<li><b>Cómo llegar:</b> bus Nohi desde la terminal junto a la estación de Takayama.</li>
+<li><b>Boletos:</b> reserva obligatoria en línea, ¥2,800 por trayecto. Compren ida y regreso juntos.</li>
+<li><b>Entradas:</b> el pueblo es gratis; las casas <i>gassho</i> por dentro cobran (≈¥400) y el shuttle al mirador Shiroyama también (o 20 min a pie).</li>
+<li><b>Tip:</b> a fines de noviembre puede nevar: zapatos con buena suela.</li>
+</ul>`},
+  en:{h:"Shirakawa-go · ≈50 min", b:`<ul>
+<li><b>Getting there:</b> Nohi bus from the terminal next to Takayama Station.</li>
+<li><b>Tickets:</b> online booking required, ¥2,800 each way. Book both ways together.</li>
+<li><b>Admission:</b> the village is free; going inside the <i>gassho</i> houses costs ≈¥400, and so does the shuttle to the Shiroyama viewpoint (or a 20 min walk).</li>
+<li><b>Tip:</b> it may snow by late November: wear shoes with good grip.</li>
+</ul>`}},
+ {tags:"jr;nosuica;free;fit:29 o 30 nov|Nov 29 or 30",
+  es:{h:"Hida-Furukawa · ≈15 min", b:`<ul>
+<li><b>Cómo llegar:</b> JR línea Takayama, tren local, ≈15 min.</li>
+<li><b>Boletos:</b> boleto en la máquina de la estación; la Suica puede no funcionar en esta zona.</li>
+<li><b>Entradas:</b> el pueblo y los canales con carpas son gratis; el museo de artesanía cobra.</li>
+<li><b>Tip:</b> es el pueblo que inspiró la película <i>Your Name</i>.</li>
+</ul>`},
+  en:{h:"Hida-Furukawa · ≈15 min", b:`<ul>
+<li><b>Getting there:</b> JR Takayama Line, local train, ≈15 min.</li>
+<li><b>Tickets:</b> buy at the station machine; Suica may not work in this area.</li>
+<li><b>Admission:</b> the town and its carp canals are free; the crafts museum charges.</li>
+<li><b>Tip:</b> it's the town that inspired the film <i>Your Name</i>.</li>
+</ul>`}},
+ {tags:"jr;nosuica;extra;entry;fit:29 nov|Nov 29",
+  es:{h:"Gero Onsen · ≈45 min", b:`<ul>
+<li><b>Cómo llegar:</b> limited express Hida, ≈45 min; o tren local, ≈1 h.</li>
+<li><b>Boletos:</b> el limited express lleva boleto extra; el local, solo el pasaje. Compren en la máquina o la ventanilla.</li>
+<li><b>Entradas:</b> los baños de pies del pueblo son gratis; los baños públicos cobran.</li>
+<li><b>Tip:</b> lleven una toalla pequeña; rentarla cuesta.</li>
+</ul>`},
+  en:{h:"Gero Onsen · ≈45 min", b:`<ul>
+<li><b>Getting there:</b> Hida limited express, ≈45 min; or the local train, ≈1 h.</li>
+<li><b>Tickets:</b> the limited express needs an extra ticket; the local, just the fare. Buy at the machine or ticket office.</li>
+<li><b>Admission:</b> the town's foot baths are free; the public baths charge.</li>
+<li><b>Tip:</b> bring a small towel; renting one costs extra.</li>
+</ul>`}},
+ {tags:"bus;extra;ownpass:pase de bus de Okuhida|Okuhida bus pass;fit:30 nov|Nov 30",
+  es:{h:"Shinhotaka Ropeway (Alpes de Okuhida) · ≈1 h 30 min", b:`<ul>
+<li><b>Cómo llegar:</b> bus Nohi desde la terminal de Takayama a Shinhotaka Onsen, ≈1 h 30 min.</li>
+<li><b>Boletos:</b> el bus se paga aparte, y hay un pase de bus para la zona de Okuhida. El teleférico de dos pisos se paga ida y vuelta.</li>
+<li><b>Entradas:</b> el teleférico es lo que se paga; el mirador de arriba es gratis.</li>
+<li><b>Tip:</b> arriba (2,156 m) hará bajo cero y es probable que haya nieve; vayan solo con el cielo despejado.</li>
+</ul>`},
+  en:{h:"Shinhotaka Ropeway (Okuhida Alps) · ≈1 h 30 min", b:`<ul>
+<li><b>Getting there:</b> Nohi bus from the Takayama terminal to Shinhotaka Onsen, ≈1 h 30 min.</li>
+<li><b>Tickets:</b> the bus is extra, and there's a bus pass for the Okuhida area. The double-decker ropeway is paid round trip.</li>
+<li><b>Admission:</b> the ropeway is what you pay for; the viewing deck at the top is free.</li>
+<li><b>Tip:</b> at the top (2,156 m) it will be below freezing with likely snow; go only on a clear day.</li>
+</ul>`}}
  ]}
 ];
 const TIPS_OPEN = new Set(store.get("jp-tips-open", []));
@@ -6061,37 +6429,62 @@ const TIPS_OPEN = new Set(store.get("jp-tips-open", []));
   }, true);
 })();
 const BUY_LEG = {es:`<div class="buy-leg"><p><span class="lt lt-L">Local</span> la usan sobre todo japoneses · <span class="lt lt-M">Mixto</span> locales y turistas · <span class="lt lt-T">Turístico</span> pensado para visitantes, con precio justo · <span class="lt lt-X">Trampa</span> precio inflado o calidad dudosa; viene con la alternativa. El rango es el precio típico por artículo.</p><p><span class="rd">Reddit</span> se recomienda seguido en Reddit (r/JapanTravel, r/TrueChefKnives y similares). Las tiendas independientes las revisé en Google Maps el 13 de noviembre: todas tienen 4.0★ o más. En cadenas, tiendas departamentales y mercados la calificación varía por sucursal. <b>Maps ↗</b> abre las reseñas, y los cierres que menciono son los que Google marca para sus fechas.</p></div>`, en:`<div class="buy-leg"><p><span class="lt lt-L">Local</span> mostly used by Japanese shoppers · <span class="lt lt-M">Mixed</span> locals and tourists · <span class="lt lt-T">Touristy</span> aimed at visitors, fairly priced · <span class="lt lt-X">Tourist trap</span> marked-up or doubtful quality; comes with the alternative. The range is the typical price per item.</p><p><span class="rd">Reddit</span> often recommended on Reddit (r/JapanTravel, r/TrueChefKnives and similar). I checked the independent shops on Google Maps on November 13: all hold 4.0★ or more. For chains, department stores and markets, ratings vary by branch. <b>Maps ↗</b> opens the reviews, and the closing days I mention are the ones Google shows for your dates.</p></div>`};
-const TIP_GRP = {sos:{es:"SOS", en:"SOS", ic:"🚑"}, talk:{es:"Frases útiles", en:"Useful phrases", ic:"💬"}, shop:{es:"Compras", en:"Shopping", ic:"🛍️"}, buy:{es:"Dónde comprar, zona por zona", en:"Where to buy, area by area", ic:"🗺️"}, train:{es:"Trenes", en:"Trains", ic:"🚆"}};
+const TIP_GRP = {sos:{es:"SOS", en:"SOS", ic:"🚑"}, talk:{es:"Frases útiles", en:"Useful phrases", ic:"💬"}, shop:{es:"Compras", en:"Shopping", ic:"🛍️"}, buy:{es:"Dónde comprar, zona por zona", en:"Where to buy, area by area", ic:"🗺️"}, train:{es:"Trenes", en:"Trains", ic:"🚆"}, trips:{es:"Day trips", en:"Day trips", ic:"🚞"}};
+/* labels for day trips: "pv:Tobu;extra;plan:2026-11-14"; a value can be "es|en" */
+const TTAG = {
+  jr:["🚆 JR","🚆 JR","t-jr"], pv:["🚃 Privado: {x}","🚃 Private: {x}","t-pv"], bus:["🚌 Bus","🚌 Bus","t-pv"], ferry:["⛴️ Ferry","⛴️ Ferry","t-pv"],
+  suica:["💳 Basta Suica","💳 Suica is enough","t-ok"], nosuica:["💴 Sin Suica: boleto en máquina","💴 No Suica: buy a ticket","t-warn"],
+  pass:["✅ Lo cubre el pase Kansai-Hiroshima","✅ Kansai-Hiroshima Pass covers it","t-ok"], nopass:["✗ No lo cubre el pase","✗ The pass doesn't cover it","t-bad"],
+  ownpass:["🎟️ Conviene: {x}","🎟️ Worth it: {x}","t-info"], extra:["🎫 Boleto extra","🎫 Extra ticket","t-warn"], res:["📅 Reservar antes","📅 Book ahead","t-bad"],
+  entry:["⛩️ Entradas de pago","⛩️ Paid admission","t-info"], free:["🆓 Casi todo gratis","🆓 Mostly free","t-ok"],
+  plan:["📌 En su plan: {x}","📌 In your plan: {x}","t-plan"], fit:["🗓️ Encaja: {x}","🗓️ Fits: {x}","t-info"]
+};
+function tagsHTML(str){
+  return String(str).split(";").map(x=>{
+    const i = x.indexOf(":"), k = i < 0 ? x : x.slice(0, i), d = TTAG[k]; if(!d) return "";
+    let v = i < 0 ? "" : x.slice(i+1);
+    if(v.includes("|")) v = v.split("|")[LANG==="es" ? 0 : 1];
+    if(k==="plan" && /^\d{4}-\d\d-\d\d$/.test(v)) v = fmtD(v);
+    return `<span class="ttag ${d[2]}">${esc((LANG==="es" ? d[0] : d[1]).replace("{x}", v))}</span>`;
+  }).join("");
+}
 function tipBody(h){
   return h.replace(/\{\{gm:([^}]+)\}\}/g, (m,q)=>`<a class="gm" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">Maps ↗</a>`)
-    .replace(/<a href="(https?:[^"]+)">/g, '<a href="$1" target="_blank" rel="noopener">');
+    .replace(/<a href="(https?:[^"]+)">/g, '<a href="$1" target="_blank" rel="noopener">')
+    .replace(/\{\{tag:([^}]+)\}\}/g, (m,x)=>tagsHTML(x));
 }
-function renderTips(){
+const TIPGRP_OPEN = new Set(store.get("jp-tipgrp-open", []));
+function tipsSectionHTML(){
   const L = LANG==="es" ? "es" : "en";
-  let html = `<h2 class="view-h">${t("Tips")}</h2><p class="view-sub">${t("SOS, shopping and train tips, plus where to buy each thing area by area. Tap a category to open it; each store has a link to Google Maps.")}</p>
+  let html = `<h2 class="view-h trip-tips-h" id="tips-h">💡 ${t("Tips")}</h2><p class="view-sub">${T2("SOS, phrases, shopping, where to buy, trains and day trips. Tap a group, then a category.","SOS, frases, compras, dónde comprar, trenes y day trips. Toca un grupo y luego una categoría.")}</p>
     <div class="tips-tools"><button type="button" class="act" data-tipsall="1">${t("Open all")}</button><button type="button" class="act" data-tipsall="0">${t("Close all")}</button></div>`;
-  for(const g of ["sos","talk","shop","buy","train"]){
-    html += `<h3 class="tip-grp"><span aria-hidden="true">${TIP_GRP[g].ic}</span>${TIP_GRP[g][L]}</h3>`;
+  for(const g of ["sos","talk","shop","buy","train","trips"]){
+    const cats = TIPS.filter(x=>x.g===g); if(!cats.length) continue;
+    const isNew = cats.some(c=>c.isNew && g==="trips");
+    html += `<details class="tip-grpd" data-tipgrp="${g}"${TIPGRP_OPEN.has(g)?" open":""}><summary><span class="ti" aria-hidden="true">${TIP_GRP[g].ic}</span><span class="tgn">${esc(TIP_GRP[g][L])}${isNew?`<span class="new">${t("New")}</span>`:""}</span><small>${cats.length}</small></summary><div class="tip-grp-b">`;
     if(g==="buy") html += tipBody(BUY_LEG[L]);
-    for(const c of TIPS.filter(x=>x.g===g)){
+    for(const c of cats){
       const C = c[L];
       html += `<details class="tip-cat" data-tipcat="${c.id}"${TIPS_OPEN.has(c.id)?" open":""}><summary><span class="ti" aria-hidden="true">${c.ic}</span><span style="min-width:0"><h3>${esc(C.t)}${c.isNew?`<span class="new">${t("New")}</span>`:""}</h3><p>${esc(C.s)}</p></span></summary>
-        <div class="tip-body">${c.items.map((it,i)=>`<details class="tip-it"${i===0?" open":""}><summary>${esc(it[L].h)}</summary><div class="tb">${tipBody(it[L].b)}</div></details>`).join("")}</div></details>`;
+        <div class="tip-body">${c.items.map((it,i)=>`<details class="tip-it"${i===0?" open":""}><summary>${esc(it[L].h)}${it.tags?`<span class="ttags">${tagsHTML(it.tags)}</span>`:""}</summary><div class="tb">${tipBody(it[L].b)}</div></details>`).join("")}</div></details>`;
     }
+    html += `</div></details>`;
   }
   html += `<p class="gs-note" style="padding:14px 0 0">${t("Prices, coupons and rules change; confirm in the store before paying.")}</p>`;
-  content.innerHTML = html;
-  content.querySelectorAll("a[data-same]").forEach(a=>a.removeAttribute("target"));
+  return html;
 }
+function renderTips(){ state.view = "trip"; window._toTips = true; renderTrip(); }
 content.addEventListener("toggle", e=>{
-  const d = e.target; if(!d.matches || !d.matches(".tip-cat[data-tipcat]")) return;
+  const d = e.target; if(!d.matches) return;
+  if(d.matches(".tip-grpd[data-tipgrp]")){ if(d.open) TIPGRP_OPEN.add(d.dataset.tipgrp); else TIPGRP_OPEN.delete(d.dataset.tipgrp); store.set("jp-tipgrp-open", [...TIPGRP_OPEN]); return; }
+  if(!d.matches(".tip-cat[data-tipcat]")) return;
   if(d.open) TIPS_OPEN.add(d.dataset.tipcat); else TIPS_OPEN.delete(d.dataset.tipcat);
   store.set("jp-tips-open", [...TIPS_OPEN]);
 }, true);
 content.addEventListener("click", e=>{
   const b = e.target.closest("[data-tipsall]"); if(!b) return;
   const on = b.dataset.tipsall==="1";
-  content.querySelectorAll(".tip-cat").forEach(d=>{ d.open = on; });
+  content.querySelectorAll(".tip-grpd[data-tipgrp], .tip-cat[data-tipcat]").forEach(d=>{ d.open = on; });
 });
 
 /* ===================== MY TRIP: taxi cards, bookings, weather, group expenses ===================== */
@@ -6247,15 +6640,13 @@ function tripDayHTML(d, h){
 }
 function wxSectionHTML(){
   const today = todayISO();
-  const rows = DAYS.filter(d=>d.d>=today).map(d=>{
-    const z = d.z[0], w = wxFor(d.d, z); if(!w) return "";
-    const we = wear(w, z);
-    return `<li><div class="wx-d"><b>${fmtD(d.d)}</b><small>${esc(t(zoneById[z].name))}</small></div><div class="wx-i">${w.ic}</div><div class="wx-b"><b>${w.hi}° / ${w.lo}°</b>${w.p!=null?` · ☔ ${w.p}%`:""} · ${esc(w.txt)}${w.src==="avg"?` <small>(${T2("no forecast yet","aún sin pronóstico")})</small>`:""}<br><span>👕 ${esc(we.text)}</span></div></li>`;
-  }).join("");
+  const d = DAYS.find(x=>x.d===today) || DAYS.find(x=>x.d>today) || DAYS[DAYS.length-1];
+  const z = d.z[0], w = wxFor(d.d, z);
   const when = WX ? new Date(WX.ts).toLocaleString(LANG==="es"?"es-MX":"en-US", {day:"numeric", month:"short", hour:"2-digit", minute:"2-digit", hourCycle:"h23"}) : null;
-  return `<p class="gs-note">${when ? T2("Forecast from Open-Meteo, updated "+esc(when)+". Days beyond the 16-day forecast show typical weather for the date.","Pronóstico de Open-Meteo, actualizado "+esc(when)+". Los días fuera del pronóstico de 16 días muestran el clima promedio de la fecha.") : T2("Showing typical weather; connect to the internet to load the 16-day forecast.","Se muestra el clima promedio; conéctate a internet para cargar el pronóstico de 16 días.")}</p>
-    <div class="txc-a"><button type="button" class="act" data-wxnow="1">${T2("Update forecast","Actualizar pronóstico")}</button></div>
-    <ul class="wxl">${rows}</ul>
+  let o = "";
+  if(w){ const we = wear(w, z); o = `<div class="wx-today"><div class="wx-i">${w.ic}</div><div class="wx-b"><small>${d.d===today?T2("Today","Hoy"):fmtD(d.d)} · ${esc(t(zoneById[z].name))}</small><b>${w.hi}° / ${w.lo}°</b>${w.p!=null?` · ☔ ${w.p}%`:""} · ${esc(w.txt)}<br><span>👕 ${esc(we.text)}</span></div></div>`; }
+  return o + `<p class="gs-note">${T2("The forecast and what to wear for every day are in Day by day.","El pronóstico y qué ponerse de cada día están en Día por día.")} ${when ? T2("Open-Meteo, updated "+esc(when)+".","Open-Meteo, actualizado "+esc(when)+".") : T2("Connect to the internet to load the forecast.","Conéctate a internet para cargar el pronóstico.")}</p>
+    <div class="txc-a"><a class="act" href="#plan" data-nav="plan">${T2("See Day by day","Ver Día por día")}</a><button type="button" class="act" data-wxnow="1">${T2("Update forecast","Actualizar pronóstico")}</button></div>
     <p class="gs-note">${T2("Umbrellas cost ≈¥500–800 at any konbini; Uniqlo Heattech is the cheap thermal layer locals wear. Always handy: shoes that slip off easily for temples and ryokan, a small towel (many restrooms have no paper towels) and a bag for your trash.","Los paraguas cuestan ≈¥500–800 en cualquier konbini; el Heattech de Uniqlo es la capa térmica barata que usan los japoneses. Siempre útil: zapatos fáciles de quitar para templos y ryokan, una toalla pequeña (muchos baños no tienen papel para secarse) y una bolsa para su basura.")}</p>`;
 }
 
@@ -6336,11 +6727,16 @@ function tripSec(id, ic, title, sub, body){
 function renderTrip(){
   const hs = HOTELS.filter(h=>h.out > todayISO());
   const resvBody = (RESV_EDIT ? resvFormHTML(RESV.find(r=>r.id===RESV_EDIT)) : resvListHTML() + `<details class="rs-add"><summary class="act pri">+ ${T2("Add a booking","Agregar reservación")}</summary>${resvFormHTML(null)}</details>`);
-  content.innerHTML = `<h2 class="view-h">${T2("My trip","Mi viaje")}</h2><p class="view-sub">${T2("Hotel cards for taxis, your bookings, the weather and what to wear, and the group's expenses. Everything is saved on this phone and works offline.","Tarjetas del hotel para el taxi, sus reservaciones, el clima y qué ponerse, y los gastos del grupo. Todo se guarda en este celular y funciona sin internet.")}</p>
+  const jump = [["taxi","🚕",T2("Taxi","Taxi")],["resv","🎫",T2("Bookings","Reservaciones")],["wx","🌤️",T2("Weather","Clima")],["exp","💴",T2("Expenses","Gastos")],["tips","💡","Tips"]];
+  content.innerHTML = `<h2 class="view-h">${T2("My trip","Mi viaje")}</h2><p class="view-sub">${T2("Everything for the trip in one place, with the tips below. What you add is saved on this phone and works offline.","Todo lo del viaje en un solo lugar, con los tips abajo. Lo que agregues se guarda en este celular y funciona sin internet.")}</p>
+    <div class="trip-jump">${jump.map(([k,ic,l])=>`<button type="button" class="act" data-jump="${k}">${ic} ${l}</button>`).join("")}</div>
     ${tripSec("taxi","🚕",T2("Hotel cards for taxis","Tarjetas de hotel para el taxi"),T2("Your hotel's name and address in Japanese, in big letters to show the driver","El nombre y la dirección de su hotel en japonés, en letra grande para enseñar al taxista"), hs.map(taxiCardHTML).join("") || `<p class="gs-note">${T2("No upcoming hotels.","No hay hoteles próximos.")}</p>`)}
     ${tripSec("resv","🎫",T2("My bookings","Mis reservaciones"),T2("Tickets, restaurants and tours with time, code and QR; they also appear in the plan","Boletos, restaurantes y tours con hora, código y QR; también aparecen en el plan"), resvBody)}
-    ${tripSec("wx","🌤️",T2("Weather and what to wear","Clima y qué ponerse"),T2("Forecast for each day of your route, with clothing tips","Pronóstico para cada día de su ruta, con qué ropa llevar"), wxSectionHTML())}
-    ${tripSec("exp","💴",T2("Group expenses","Gastos del grupo"),T2("Log expenses, split them and see who owes whom","Registren gastos, divídanlos y vean quién le debe a quién"), expSectionHTML())}`;
+    ${tripSec("wx","🌤️",T2("Weather and what to wear","Clima y qué ponerse"),T2("Today's weather and what to wear","El clima de hoy y qué ponerse"), wxSectionHTML())}
+    ${tripSec("exp","💴",T2("Group expenses","Gastos del grupo"),T2("Log expenses, split them and see who owes whom","Registren gastos, divídanlos y vean quién le debe a quién"), expSectionHTML())}
+    ${tipsSectionHTML()}`;
+  content.querySelectorAll("a[data-same]").forEach(a=>a.removeAttribute("target"));
+  if(window._toTips){ window._toTips = false; requestAnimationFrame(()=>{ const el = document.getElementById("tips-h"); if(el) el.scrollIntoView({block:"start"}); }); }
   wxFetch(false);
 }
 
@@ -6362,6 +6758,7 @@ document.addEventListener("click", e=>{
   if(ds.redit){ RESV_EDIT = ds.redit; renderTrip(); return; }
   if(ds.rcancel){ RESV_EDIT = null; renderTrip(); return; }
   if(ds.rdel){ if(confirmDel()){ RESV = RESV.filter(r=>r.id!==ds.rdel); saveResv(); renderTrip(); } return; }
+  if(ds.jump){ const el = ds.jump==="tips" ? document.getElementById("tips-h") : content.querySelector(`[data-tripsec="${ds.jump}"]`); if(el){ if(el.tagName==="DETAILS") el.open = true; el.scrollIntoView({behavior:"smooth", block:"start"}); } return; }
   if(ds.wxnow){ wxFetch(true); toast(T2("Updating…","Actualizando…")); return; }
   if(ds.xdel){ EXP.items = EXP.items.filter(x=>x.id!==ds.xdel); EXP.gone = [...new Set([...(EXP.gone||[]), ds.xdel])]; saveExp(); renderTrip(); return; }
   if(ds.xreset){ if(confirmDel()){ EXP.gone = [...new Set([...(EXP.gone||[]), ...EXP.items.map(x=>x.id)])]; EXP.items = []; saveExp(); renderTrip(); } return; }
@@ -6427,7 +6824,7 @@ function renderLede(){
 }
 function renderAll(refit){ renderZones(); renderFilters(); document.getElementById("filters").hidden = state.view!=="guide" || (state.zone!=="all" && ZTAB==="info"); renderContent(); renderMap(refit); }
 renderLede();
-{ const h = (location.hash||"").slice(1).toLowerCase(); if(["plan","near","mine","tips","trip"].includes(h)) state.view = h; }
+{ const h = (location.hash||"").slice(1).toLowerCase(); if(h==="tips"){ state.view = "trip"; window._toTips = true; } else if(["plan","near","mine","trip"].includes(h)) state.view = h; }
 applyStatic(); syncNav(); syncMapVis();
 initMap();
 initSiteMap();
