@@ -1,7 +1,7 @@
 {
-  "name": "Japón 2026 · Guía de viaje",
+  "name": "Japón 2026 · Plan por día",
   "short_name": "Japón 2026",
-  "description": "Mapa con calles, lugares, plan por día y trenes para el viaje a Japón. Funciona sin conexión.",
+  "description": "Plan por día del viaje a Japón: zonas, cómo moverse y clima. Funciona sin conexión.",
   "lang": "es",
   "start_url": "./",
   "scope": "./",
