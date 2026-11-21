@@ -1416,6 +1416,17 @@ html.ovl-on{overflow:hidden}
 .rating.tier-b .s{color:inherit}
 .rating.tier-c{background:var(--tint);color:var(--ink);padding:1px 9px;border-radius:999px;font-size:12px}
 .pr .rating{font-size:12px}
+.zb-in{display:flex;align-items:center;gap:8px}
+.zb-in .zones{flex:1;min-width:0}
+.zb-tog{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
+.zb-tog svg{transition:transform .2s}
+.zonebar.collapsed .zb-tog svg{transform:rotate(180deg)}
+.zonebar.collapsed .zones{padding-block:5px;overflow:hidden}
+.zonebar.collapsed .zone-btn:not([aria-pressed="true"]){display:none}
+.zonebar.collapsed .zone-btn{padding:2px 14px 2px 3px;gap:8px}
+.zonebar.collapsed .zone-btn .stamp{width:30px;height:30px;font-size:10px}
+.zonebar.collapsed .zone-btn .zn{font-size:13.5px}
+.zonebar.collapsed .zone-btn .zd{font-size:11px}
 .gotoday{display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:10px;align-items:center;width:100%;margin:2px 0 14px;padding:10px 14px;border:0;border-radius:14px;background:var(--accent);color:var(--paper);text-align:left;font:inherit;cursor:pointer;box-shadow:var(--shadow)}
 .gotoday .gt-ic{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:color-mix(in srgb,var(--paper) 18%,transparent)}
 .gotoday .gt-ic svg{width:20px;height:20px}
@@ -1460,7 +1471,7 @@ html.ovl-on{overflow:hidden}
 
 
 <nav class="zonebar" id="zonebar" aria-label="Zones">
-  <div class="wrap zones" id="zones"></div>
+  <div class="wrap zb-in"><div class="zones" id="zones"></div><button type="button" class="zb-tog" id="zbTog" aria-controls="zones" aria-expanded="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg></button></div>
 </nav>
 
 <main class="wrap layout">
@@ -3579,6 +3590,7 @@ Object.assign(ES, {"Uji's tea house since 1859, with matcha parfaits and matcha 
 Object.assign(ES, {"Buy a small daruma, make a wish and leave it on the grounds. Metro Midosuji runs straight to Minoh-Kayano; then a 15-minute taxi.": "Compra un daruma pequeño, pide tu deseo y déjalo en el templo. El metro Midosuji llega directo a Minoh-Kayano; de ahí son 15 min en taxi.", "The trail is 2.7 km each way from Hankyu Minoo station, at its best in late November.": "El sendero mide 2.7 km de ida desde la estación Hankyu Minoo; está en su mejor momento a fines de noviembre.", "Minoo": "Minoo", "Expo '70 Park": "Parque Expo '70"});
 Object.assign(ES, {"Row of cafés and restaurants at the castle park's JR entrance, good for breakfast before the castle.": "Fila de cafés y restaurantes en la entrada de JR al parque del castillo, buena para desayunar antes del castillo.", "Retro 1960s-style food alley inside Tempozan Marketplace, next to Kaiyukan, with old Osaka favorites.": "Callejón de comida retro estilo años 60 dentro de Tempozan Marketplace, junto al Kaiyukan, con clásicos de Osaka.", "Good for a late lunch between the aquarium and the Ferris wheel.": "Bueno para una comida tarde entre el acuario y la rueda de la fortuna.", "Hands-on museum of instant ramen where you design your own cup and choose its flavors.": "Museo interactivo del ramen instantáneo donde diseñas tu propio vaso y eliges sus sabores.", "The My Cup Noodles Factory takes timed tickets at the door; get them as soon as you arrive. Closed Tuesdays.": "El My Cup Noodles Factory da boletos con horario en la entrada; sáquenlos en cuanto lleguen. Cierra los martes.", "Two 1910s brick customs warehouses on the harbor, with shops, cafés and a Christmas market usually from late November.": "Dos bodegas aduanales de ladrillo de 1910 en el puerto, con tiendas, cafés y un mercado navideño que normalmente empieza a fines de noviembre.", "Urban ropeway gliding over the harbor between Sakuragicho and the Unga Park, best at dusk.": "Teleférico urbano sobre el puerto entre Sakuragicho y el parque Unga, mejor al atardecer.", "Wooden-decked cruise pier with the best free view of the Minato Mirai skyline, day or night.": "Muelle de cruceros con cubierta de madera y la mejor vista gratis del perfil de Minato Mirai, de día o de noche.", "Japan's largest Chinatown: steamed buns, xiaolongbao and banquet halls behind ten ornate gates.": "El barrio chino más grande de Japón: bollos al vapor, xiaolongbao y salones de banquete detrás de diez puertas ornamentadas.", "Large Yokohama garden of historic buildings moved from Kyoto and Kamakura, with a three-story pagoda over a pond and maples into early December.": "Gran jardín de Yokohama con edificios históricos traídos de Kioto y Kamakura, una pagoda de tres pisos sobre un estanque y arces hasta principios de diciembre.", "Take the bus from Sakuragicho or Chinatown; it closes at 17:00.": "Vayan en bus desde Sakuragicho o el barrio chino; cierra a las 17:00.", "Yokohama": "Yokohama"});
 Object.assign(ES, {"Go to today":"Ir a hoy"});
+Object.assign(ES, {"Show all cities":"Mostrar todas las ciudades","Show only the current city":"Mostrar solo la ciudad actual"});
 const ES_HTML = {"footer1":"Fechas del follaje: pronósticos 2026 de <a href=\"https://www.nippon.com/en/japan-data/h02888/\" target=\"_blank\" rel=\"noopener\">nippon.com</a> y <a href=\"https://www.japan-guide.com/autumn-colors/\" target=\"_blank\" rel=\"noopener\">japan-guide.com</a>. Fechas de las iluminaciones de Kioto de <a href=\"https://livejapan.com/id/in-kansai/in-pref-kyoto/in-kyoto-station_to-ji-temple/article-a2001100/\" target=\"_blank\" rel=\"noopener\">LIVE JAPAN</a>. Renovaciones según la lista de obras de japan-guide.com (actualizada el 1 oct 2026).","footer2":"Los horarios, precios y reglas de reservación cambian; confírmalos en el sitio oficial antes de ir. Mapa base: Natural Earth; contorno de Naoshima del Global Map Japan del GSI. Calles, estaciones, vías de tren y ríos: &copy; <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener\">colaboradores de OpenStreetMap</a>, bajo la Open Database License. Búsqueda de direcciones: OpenStreetMap Nominatim."};
 let LANG = "es"; try{ const s = localStorage.getItem("jp-lang"); if(s==="en"||s==="es") LANG = s; }catch(e){}
 const t = s => (LANG==="es" && s && ES[s]) || s;
@@ -4039,6 +4051,30 @@ let map=null, markerLayer=null, markers={}, activeId=null;
 function barH(){ return document.getElementById("zonebar").offsetHeight; }
 function syncBar(){ document.documentElement.style.setProperty("--bar-h", barH()+"px"); }
 syncBar(); addEventListener("resize", syncBar);
+/* the city bar can fold down to just the current city */
+const zbar = document.getElementById("zonebar"), zbTog = document.getElementById("zbTog");
+let ZB_MIN = false, zbPeek = false;
+try{ ZB_MIN = JSON.parse(localStorage.getItem("jp-zb-min") || "false") === true; }catch(e){}
+function syncZb(){
+  const min = ZB_MIN && !zbPeek;
+  zbar.classList.toggle("collapsed", min);
+  zbTog.setAttribute("aria-expanded", String(!min));
+  zbTog.setAttribute("aria-label", min ? t("Show all cities") : t("Show only the current city"));
+  zbTog.title = zbTog.getAttribute("aria-label");
+  syncBar();
+  if(!min){ const act = zonesEl.querySelector('[aria-pressed="true"]'); if(act) zonesEl.scrollTo({left:Math.max(0, act.offsetLeft - zonesEl.clientWidth/2 + act.offsetWidth/2), behavior:"auto"}); }
+}
+zbTog.addEventListener("click", ()=>{
+  ZB_MIN = !(ZB_MIN && !zbPeek); zbPeek = false;
+  try{ localStorage.setItem("jp-zb-min", JSON.stringify(ZB_MIN)); }catch(e){}
+  syncZb();
+});
+zonesEl.addEventListener("click", e=>{
+  if(!e.target.closest("[data-zone]")) return;
+  if(zbar.classList.contains("collapsed")){ e.stopImmediatePropagation(); e.preventDefault(); zbPeek = true; syncZb(); return; }
+  if(zbPeek) setTimeout(()=>{ zbPeek = false; syncZb(); }, 0);
+}, true);
+syncZb();
 
 function popupHTML(s){
   const z = zoneById[s.zone];
